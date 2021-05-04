@@ -1,0 +1,124 @@
+.tdash-board .tdmatccard{
+    min-height: 250px;
+}
+.maincard{
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    min-height: 250px;  
+    display: block;
+    position: relative;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+
+.dashboard-heading {
+    color: #25559f;
+ }
+ 
+ .dashboard-first-div .maincards {
+    border-top: 8px solid #1d56af;
+    min-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 1px 1px #888888;
+    margin: 0 0px;
+    padding: 20px;
+    text-align: center;
+ }
+
+ .maincards img {
+   width: 70%;
+}
+
+ 
+ .revenue-div {
+    display        : flex;
+    justify-content: space-between;
+ }
+ 
+ .revenue-icon {
+    height   : 60px;
+    width    : 50px;
+    position : absolute;
+    right    : 30px;
+    color    : #d3d1d147;
+    font-size: 60px;
+ }
+ .revenue-icon.firsticon{
+    font-size: 80px;
+ }
+ 
+ .revenue-icon.lasticon{
+    right    : 50px;
+ }
+ .price-div {
+    display        : flex;
+    justify-content: space-between;
+    margin-top     : 50px;
+    align-items: center;
+ }
+ 
+ .rupee-svg {
+    height     : 50px;
+    width      : 50px;
+    text-align : start;
+    margin-left: 9px;
+    color      : blue;
+ }
+ 
+ .price-tag {
+    font-size: 32px;
+     font-weight: 700;
+ }
+ 
+ .symbols {
+    font-size: 50px;
+    color    : #2c93ce;
+ }
+
+ .tdmatccard .maincards .price-div{
+   min-height: 150px;
+   margin: 0;
+   align-items: flex-end;
+ }
+
+ .tdmatccard .maincards .price-div .symbols{
+    font-size: 80px;
+ }
+
+ .tdmatccard .maincards .price-div .price-tag{
+    font-size: 44px;
+ }
+
+ .tdmatccard .maincards{
+   border-top: 8px solid #1d56af;
+   min-height: 200px;
+   border-radius: 8px;
+   box-shadow: 0px 1px 1px 1px #888888;
+   margin: 0 0px;
+   padding: 20px;
+ }
+ .tdmatccard .maincards .revenue-icon{
+    font-size: 90px;
+ }
+ .tdmatccard .maincards .revenue-icon.astundt{
+    right: 75px;
+ }
+ .tdmatccard .maincards .revenue-icon.lasticon{
+    right: 90px;
+ }
+ @media screen and (max-width:767px){
+   .dashboard-first-div .maincards{
+   margin-bottom: 20px;
+   }
+   .maincard{
+      padding: 0;
+   }
+}
+@media screen and (min-width:768px) and (max-width:991px){
+   .dashboard-heading{
+      font-size: 23px;
+   }
+   .dashboard-first-div .maincards{
+      margin-bottom: 15px;
+   }
+}

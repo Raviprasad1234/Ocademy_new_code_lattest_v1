@@ -1,0 +1,153 @@
+@media screen and (min-width: 43.81em)
+{
+    .footer-section-main {
+        padding-top: 2.4rem;
+        padding-bottom: 2.4rem;
+    }
+    .logo-and-select {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+@media screen and (min-width: 61.31em){
+    .footer-section {
+        padding-left: 3.2rem;
+        padding-right: 3.2rem;
+    }
+}
+@media screen and (min-width: 75.06em){
+    .footer-section {
+        padding-left: 4.8rem;
+        padding-right: 4.8rem;
+    }
+}
+.footer-section {
+    position: relative;
+    background: #000;
+    border-top: 1px solid #dcdacb;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+}
+
+.logo-container {
+    /* display: flex; */
+    align-items: center;
+}
+.logo-container {
+    padding: 1.6rem 0;
+}
+.logo-container a{
+    width: 200px;
+}
+
+.locale-select-container {
+    padding: 0;
+    order: 1;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.footer-links {
+    display: flex;
+}
+
+.unstyled-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+}
+.unstyled-list li {
+    padding-left: 0;
+    display: inline;
+}
+.footer-section .link {
+    display: block;
+    padding: .4rem 0;
+}
+.footer-section a {
+    color:#fff ;
+    text-decoration: none;
+}
+.footer-section a:hover {
+    color: #375b8d ;
+    text-decoration: none;
+}
+.footer-copyright {
+    padding: 1.5rem 0 0 0;
+}
+
+.footer-section .ft-cs {
+    font-weight: 500;
+}
+.footer-section .ft-cs:hover{
+    color: #1C56AE !important;
+}
+.disabled, .disabled:hover{
+    cursor: default;
+    color: #FFFFFF !important;
+}
+
+@media (min-width: 43.81em){
+    .link-column {
+        flex-basis: 25.6rem;
+        margin-right: 1.6rem;
+        margin-bottom: 0;
+    }
+}
+
+
+@media screen and (min-width: 43.81em){
+.locale-select-container {
+    padding: 0;
+    order: 1;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+}
+
+
+
+
+/* perfect-scrollbar v0.6.13 */
+
+.ps-container {
+    -ms-touch-action: auto;
+    touch-action: auto;
+    overflow: hidden !important;
+    -ms-overflow-style: none;
+}
+
+@supports (-ms-overflow-style: none) {
+    .ps-container {
+        overflow: auto !important;
+    }
+}
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    .ps-container {
+        overflow: auto !important;
+    }
+}
+
+
+.footer-copyright {
+    padding: 10px 0;
+    background-color: #3860ae;
+    text-align: center;
+}
+
+.footer-section .ft-cs {
+    font-weight: 500;
+}
+.footer-section .ft-cs:hover{
+    color: #1C56AE !important;
+}
+
+@media screen and (max-width:767px){
+    .footer-section{
+        padding:15px;
+    }
+}

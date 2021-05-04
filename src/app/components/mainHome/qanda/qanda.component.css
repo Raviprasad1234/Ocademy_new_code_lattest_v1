@@ -1,0 +1,57 @@
+.container-div {
+    text-align: center;
+
+}
+
+.input-divv {
+    border       : 1px solid #1e5cb1 !important;
+    border-radius: 5px;
+}
+
+.input-divv button {
+
+    text-align: center;
+    background: linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important;
+    border    : none;
+
+    color: white;
+}
+
+
+#thirdd-div {
+    display        : flex;
+    justify-content: space-between;
+    margin-top     : 15px;
+    font-size      : bold;
+
+}
+
+
+.div11-row {
+    color         : silver;
+    text-align    : left;
+    border-bottom : 1px solid silver;
+    padding-bottom: 10px;
+    margin-top    : 20px;
+
+}
+
+.main-headings {
+    color      : black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.div111-row {
+    color     : silver;
+    text-align: left;
+
+    margin-top: 20px;
+
+}
+
+.coming-soon-cls{
+    font-weight: 900;
+    text-align: center;
+    min-height: 300px;
+}

@@ -1,0 +1,332 @@
+<div class="mainDiv">
+
+    <div class="main-header">
+        <div class="main-nav-ancors" >
+            <span class="main-course"  (click)="goback()"    >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+
+                {{sectiontitle}}
+                
+            </span>
+            <span class="main-course-maker"  (click)="goback()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                </svg>
+                 {{SelectedsectionName}}
+            </span>
+        </div>
+    </div>
+
+    <div class="row maincontent">
+        <div class="side">
+            <div class="p-0">
+                <h5 class="vide-txt">Create Video Lesson</h5>
+                <div class="div_lt ml-2 pt-2 pb-2">
+                    <h6 class="vid-title">Title</h6>
+                    <input [(ngModel)]="l_name" (keyup)="checkSpaces($event)"  type="text" class="vid-text-field" placeholder="Enter Lesson name">
+                </div>
+                <!-- <div class="div_ll ml-2 pt-2 pb-2">
+                    <h6 class="vid-lesson">Lesson Type</h6>
+                    <label><input type="radio" (change)="changeLessonType('Trail')" name="enable" checked> Free </label>
+                    <label><input type="radio" (change)="changeLessonType('Paid')" name="enable"> Paid </label>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Content will be re-processed. Are you sure you want to make it Trial? -->
+
+        <div id="addSection" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title oa-gry">Change Lesson Type</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Content will be re-processed. Are you sure you want to make it <span>{{pricedata}}</span> ?
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn add_sec_cancel main_btn_a oa-bg-grdnt-lr"
+                            data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn add_sec_save main_btn_a oa-bg-grdnt-lr">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="main">
+            <div class="heading-div">
+                <h2 class="designed-certificate-tag"><span>Video</span></h2>
+
+                <button class="left-text btn btn-light">
+                    <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/tutor/course-maker/Certificate_logos/edit.svg"
+                        class="edit-icon">
+                    Upload from System </button>
+            </div>
+            <div class="cont-div">
+            </div>
+        </div> -->
+
+
+      
+
+        <div class="main">
+            <div class="heading-div">
+                <div class="box">
+                    <h2 class="pdf-tag"><span>Video</span></h2>
+                    <div class="right-btns">
+
+
+
+                        <input type="file" class="file-input-tag" (change)="getFileDetails($event)" id="file-chooser"
+                            accept=".mp4" style="display: none;" accept="video/mp4,video/x-m4v,video/*">
+                        <!-- <input type="file" id="file" > -->
+                        <button class="left-text btn btn-light"    [disabled]="!isValid" (click)="uploadimage()">
+                            <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/upload.svg" class="edit-icon">
+                            Upload from System </button>
+                        &nbsp; &nbsp;
+                        <!-- <button class="left-text btn btn-light">
+                            <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/dropbox.svg" class="edit-icon">
+                            Sync From Dropbox </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="middle_div">
+                <h6 class="left-firsrt-tag">upload your Video</h6>
+            </div>
+
+            <!-- Lesson Divs -->
+            <div class="get-started-div">
+                <div class="row mx-auto">
+
+                    <div *ngFor="let c of lesson_data ;let i = index" (click)="checkVideoPlayer(c, i)"
+                        class="get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-4 col-xs-6">
+                        <div class=" card text-center get-started-div-card-div-cls h-100  ">
+
+                            <span>
+                                <div class="video_player1">
+
+                                    <div class="crse_txt_card">
+                                        
+                                            <span class="label-first-char">{{c.name | slice: 0:2}}    </span>
+ 
+
+                                            <p class="delete_video_lesson_cls" (click)="deletevideolesson($event , c['section_id'] , c['id'])">
+                                                <a href="javascript:;" style="color: white;">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill"
+                                                        fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+                                                    </svg>
+                                                </a>
+                                            </p>
+
+                                          
+
+
+                                            <!-- <span class="label-first-char">J</span>
+                                            <span class="label-second-char">a</span> -->
+                                        
+                                    </div>
+                                </div>
+                            </span>
+                            <!-- modal -->
+
+
+
+                            <!-- open modal  -->
+
+                            <!-- ravi bootstrap 4 modal  -->
+
+                            <div class="modal fade" id="myModal{{i}}" data-backdrop="static" data-keyboard="false"
+                                tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 style="font-size: 18px; margin: 0; color: #000000;text-transform: capitalize;"
+                                                class="card-title">{{c.name}}</h5>
+                                            <button type="button" class="close" (click)="closeModal(i)"
+                                                data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <video id="vplayer_{{i}}" allowfullscreen controlsList="nodownload"
+                                                  disablepictureinpicture 
+                                                    width="100%" height="100%" controls>
+                                                    <source src="{{c.fileUrl}}">
+                                                </video>
+                                                <!-- <iframe src="{{c.fileUrl}}"></iframe> -->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="get-started-div-card-text-cls card-body">
+                                <h5 class="card-title">{{c.name}}</h5>
+                                <!-- <p class="card-text">
+                                    {{c.category}}
+                                </p> -->
+                                <div class="progress  course-card-progress-cls">
+                                    <div class="progress-bar progress-bar-complete-color-cls" style="width:70%"></div>
+                                </div>
+
+
+                                <div *ngIf="c.CStarted">
+                                    <div class="pull-left">
+                                        <p class="card-text progress-bar-percent-text-cls">
+                                            30% Complete
+                                        </p>
+                                    </div>
+                                    <div class="pull-right">
+                                        <p class="progress-bar-percent-text-cls">
+                                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                            <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <ng-container *ngIf="!c.CStarted">
+                                    <div class="pull-left">
+                                        <p class=" progress-bar-start-course-text-cls">
+                                            View Course
+                                        </p>
+                                    </div>
+                                    <div class="pull-right">
+                                    </div>
+                                </ng-container>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- end  box hide  -->
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="drag-drop">
+                <!-- <p class="drag-head">
+                    Drag and Drop file here
+                </p> -->
+                <!-- <ng-container *ngIf="!showvideodiv">
+                    <div class="uploaded-docs" *ngFor="let file of myFiles">
+                        <p>{{file.name}}</p>
+                        <p (click)="deletevideo()"><a href="javascript:;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                    viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor"
+                                    >
+                                    <path fill-rule="evenodd"
+                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+                                </svg></a></p>
+                    </div>
+                </ng-container> -->
+
+
+                <ng-container *ngIf="showUploadSpinner">
+                <mat-progress-spinner
+                        class="video-upload-spinner-cls"
+                        [color]="color"
+                        [mode]="mode"
+                        [diameter]="70"
+                        [value]="value">
+                </mat-progress-spinner>
+                <span   class="video-upload-text-cls" > Video Uploading ... </span>
+            </ng-container>
+
+
+                <ng-container *ngIf="!showvideodiv">
+                    <div class="col-lg-4 video-display-cls  ">
+                        <div class="card " *ngFor="let file of myFiles ">
+                            <div class="cardHeading">
+                                <span class="card-title "
+                                    style="color: white;font-size: 30px; text-align: center;">{{file.name | slice: 0:2}} </span>
+                                <p (click)="deletevideo()">
+                                    <a href="javascript:;" style="color: white;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill"
+                                            fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+                                        </svg>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <span>{{file.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-container>
+
+                <input type="file" (change)="getFileDetails($event)" #fileUploader id="secondupload" accept=".mp4"
+                    style="display: none;" />
+
+                    <!-- file drag and Drop event  -->
+                    <ng-container  *ngIf="hideSelectFileHere">
+                        <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+                        (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+                            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                                <button  class="drag-drop-css" (click)='seconduploadfun()' 
+                                [disabled]="!isValid"> Select file here </button>
+                            </ng-template>
+                        </ngx-file-drop> 
+                    </ng-container>
+                    
+                    <!-- end File Drag and Drop Event  -->
+
+                <!-- <button class="drag-head" (click)='seconduploadfun()' 
+                [disabled]="!isValid"> Select file here</button>  -->
+            
+            
+            </div>
+
+             <!-- <div class="heading-div cover-image-div-cls">
+                <div class="box">
+                    <h2 class="pdf-tag"><span>Cover Image</span></h2>
+                    <div class="right-btns">
+                        <button class="left-text btn btn-light">
+                            <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/upload.svg" class="edit-icon">
+                            Upload from System </button> &nbsp; &nbsp;
+                    </div>
+                </div>
+            </div> 
+             <div class="middle_div">
+                <h6 class="left-firsrt-tag">upload your Lesson Cover Image</h6>
+            </div> 
+             <div class="drag-drop">  
+            </div>  -->
+
+
+            <div class="flex-containers">
+                <button class="btn  sreate-new-coursebtn-cls"
+                [disabled]="!isBtnSave"
+                mat-raised-button color="primary"
+                    (click)="uploadVideo()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

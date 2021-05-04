@@ -1,0 +1,36 @@
+.container-div{
+    text-align: center;
+    
+}
+
+.input-divv{
+    border: 1px solid #1e5cb1 !important;
+    border-radius:5px;
+}
+
+.input-divv button{
+  
+    text-align: center;
+    background: linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important;
+    border: none;
+
+    color: white;
+}
+
+.heading{
+    margin-top:20px;
+    color: rgb(102, 101, 101);
+    font-weight: bold;
+    font-size: 20px;
+}
+.heading-two{
+    color: rgb(190, 186, 186);
+    font-size: 12px;
+}
+
+.coming-soon-cls{
+    text-align: center;
+    font-weight: 900;
+    min-height: 300px;
+
+}

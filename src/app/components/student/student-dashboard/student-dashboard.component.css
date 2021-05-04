@@ -1,0 +1,432 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.student-navbar-div-cls {
+  background: #1C56AE;
+}
+
+.main-div-text-cls {
+  color: #fff;
+}
+
+.nav-list-div-cls {
+  position: relative;
+  bottom  : -7px;
+}
+
+.main-heading-cls {
+  margin-left   : 40px;
+  /* padding-top: 15px; */
+  font-size     : 30px;
+  color         : #eee;
+  padding-top   : 15px;
+  font-weight   : bold;
+  position      : relative;
+}
+
+.student-nav-tabs-cls {
+  margin-left: 35px;
+}
+
+.student-nav-tabs-cls .nav-link {
+  color           : #ffffff;
+  border          : 0;
+  /* border-bottom: 1px solid grey; */
+}
+
+.student-nav-tabs-cls .nav-link:hover {
+  border          : 0;
+  color           : #fff;
+  /* border-bottom: 1px solid grey; */
+}
+
+.student-nav-tabs-cls .nav-link.active {
+  color        : #fff;
+  border       : 0;
+  border-radius: 0;
+  border-bottom: 4px solid #989898;
+}
+
+.student-nav-tabs-cls>li {
+  float  : none;
+  display: inline-block;
+  zoom   : 1;
+}
+
+.student-nav-tabs-cls {
+  text-align: start;
+}
+
+.tab-content-custom-cls {
+  padding: 30px;
+}
+
+
+
+/* cards css  */
+
+
+
+.get-started-div-cards-div-cls {
+  margin-bottom: 3rem;
+  
+  /* z-index: 99; */
+}
+
+.get-started-div-cards-div-cls:hover{
+  cursor: pointer;
+  }
+
+  .my-learning-section-cls{
+     display: flex;
+    flex-wrap: wrap;
+  }
+
+
+.get-started-div-card-div-cls {
+  border        : 0;
+  border-radius : 10px;
+  min-width     : 10rem;
+  max-width     : 20rem;
+  min-height    : 300px;
+  box-shadow    : 1px 1px 2px #dedede;
+}
+
+.label-first-char {
+  font-size: 60px;
+  text-transform: capitalize;
+}
+
+.crse_txt_card {
+  background-color: #267ac2;
+  padding: 30px 0;
+  padding-bottom: 13px;
+  margin: 0;
+  text-align: center;
+  min-height: 150px;
+  max-height: 200px;
+}
+.get-started-div-cards-div-cls:nth-child(2n+1) .crse_txt_card{
+   background-color: #c27926;
+}
+.get-started-div-cards-div-cls:nth-child(2n+2) .crse_txt_card{
+   background-color: #8c0388;
+}
+.get-started-div-cards-div-cls:nth-child(2n+4) .crse_txt_card{
+  background-color: #267ac2;
+}
+
+.crse_txt_card p {
+  color: rgba(255, 255, 255, .97);
+  font-weight: 600;
+  padding: 0;
+   margin: 0;
+   height: 0;
+}
+
+
+.get-started-div-card-div-cls:hover {
+  box-shadow   : 2px 2px 4px #dedede;
+  border-radius: 10px;
+}
+
+.get-started-div-card-text-cls .card-text {
+  text-align      : start;
+  color           : #989898;
+}
+
+.get-started-div-card-text-cls .card-title {
+  text-align    : start;
+  color         : #000000;
+  font-size     : 17px;
+  font-weight   : 900;
+  text-transform: capitalize;
+}
+
+.get-started-div-card-text-cls .btn {
+  color      : #2d93cf;
+  font-size  : 13px;
+  font-weight: 400;
+}
+
+.get-started-div-card-text-cls .card-body {
+  padding-right: 0px !important;
+  padding-left : 0px !important;
+}
+
+.get-started-div-card-text-cls a {
+  position : absolute;
+  bottom   : 10px;
+  right    : 6px;
+}
+
+
+.get-started-div-img-cls {
+  width    : 35px;
+  max-width: 75px;
+  margin   : 15px;
+}
+
+.stream-btn-cls {
+  color        : #989898;
+  font-weight  : 700;
+  font-size    : 11px;
+  padding-left : 15px;
+  padding-right: 15px;
+}
+
+.mat-badge-content {
+  background: white;
+  color     : #989899;
+  border    : 1px solid #989899;
+}
+
+/* ravi new Cards section  */
+.dot-btn-cls {
+  position     : absolute;
+  right        : 10px;
+  top          : 8px;
+  padding      : 4px 8px;
+  margin       : 5px;
+  border       : 1px solid #989898;
+  background   : #fff;
+  color        : #1C56AE;
+  font-size    : 18px;
+  border-radius: 3px;
+}
+
+
+.dot-btn-cls:hover {
+  cursor: pointer;
+}
+
+.dot-heart-btn-cls {
+  position     : absolute;
+  right        : 10px;
+  top          : 8px;
+  padding      : 10px;
+  margin       : 5px;
+  border       : 1px solid #989898;
+  background   : #fff;
+  color        : #1C56AE;
+  font-size    : 18px;
+  border-radius: 50%;
+
+}
+
+.dot-heart-btn-cls:hover {
+  cursor: pointer;
+}
+
+
+
+.dot-span-cls {
+  position: absolute;
+  right   : -30px;
+  top     : 10px;
+}
+
+.share-fav-cls {
+  position         : absolute;
+  padding          : 10px;
+  /* padding-bottom: 1px; */
+  height           : auto;
+  background-color : #fff;
+  letter-spacing   : 1px;
+  color            : #989898;
+  right            : 16px;
+  top              : 45px;
+  min-width        : 75px;
+  max-width        : 125px;
+  text-align       : start;
+  line-height      : 2;
+}
+
+.share-fav-cls p {
+  margin: 0px;
+  cursor: pointer;
+}
+
+.share-fav-cls i {
+  cursor: pointer;
+}
+
+.share-fav-cls span:hover {
+  cursor: pointer;
+}
+
+
+.share-unarchive-cls {
+  position         : absolute;
+  padding          : 5px 10px;
+  /* padding-bottom: 1px; */
+  height           : auto;
+  background-color : #fff;
+  letter-spacing   : 1px;
+  color            : #989898;
+  right            : 16px;
+  top              : 45px;
+  min-width        : 75px;
+  max-width        : 125px;
+  text-align       : start;
+  line-height      : 1;
+}
+
+.share-unarchive-cls p {
+  margin: 0px;
+}
+
+/* ravi new Cards section ends  */
+
+.course-card-progress-cls {
+  min-height: 2px;
+  max-height: 5px;
+  background: #989898;
+}
+
+.progress-bar-start-course-text-cls {
+  color      : #1C56AE;
+  font-weight: 900;
+  padding-top: 5px;
+}
+
+.progress-bar-percent-text-cls {
+  padding-top: 10px;
+  text-align : start;
+}
+
+.progress-bar-complete-color-cls {
+  background-color: #1C56AE;
+}
+
+.inactive-start-cls {
+  color: #989898;
+}
+
+.active-start-cls {
+  color: #1C56AE;
+}
+
+.reset-btn-cls {
+  margin-top: 7px;
+  color     : #989898;
+  outline   : none;
+  border    : 0px;
+}
+
+
+.search-btn-cls {
+  padding-top: 10px;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.search-btn-cls .input-group-text {
+  background-color: #1C56AE;
+}
+
+.search-btn-cls .search-icon-cls {
+  color: #fff;
+}
+
+.cards-dropdown-cls label {
+  color: #989898;
+}
+
+.cards-dropdown-cls {
+  margin-right: 20px;
+}
+
+.cards-dropdown-cls select {
+  color : #1C56AE;
+  border: 1px solid #1C56AE;
+}
+
+.search-btn-cls ::placeholder {
+  color: #1C56AE;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.priceRating-div-sec-cls {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+}
+
+.priceRating-rating-sec-cls p {
+  padding: 0px;
+}
+
+.wishlist-price-sec-cls {
+  display        : flex;
+  flex-direction : row;
+  justify-content: flex-start;
+}
+
+.wishlist-price-sec-cls p {
+  padding-right: 10px;
+}
+
+/* end cards css  */
+
+.card-slice-name {
+  background-color: rgb(119, 118, 116);
+  height          : 160px;
+  padding         : 50px;
+  color           : aliceblue;
+  font-size       : 40px;
+  text-transform: capitalize;
+}
+
+
+.get-started-div-cards-div-cls:nth-child(2n+1) .card-slice-name {
+  background: #c27926;
+}
+
+.get-started-div-cards-div-cls:nth-child(2n+2) .card-slice-name {
+  background: #8c0388;
+}
+
+.get-started-div-cards-div-cls:nth-child(2n+4) .card-slice-name {
+  background: #267ac2;
+}
+
+
+.paginationDiv {
+  display        : flex;
+  justify-content: flex-end;
+}
+
+.coverimage-cls{
+  min-height   : 150px;
+  max-height   : 150px;
+  padding: 0px;
+  border-bottom: none;
+}
+
+.nocontentmessage {
+  min-height     : calc(100vh - 618px);
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  font-size      : 24px;
+}
+
+@media (max-width: 767px){
+.tab-content-custom-cls {
+  padding: 0;
+}
+.get-started-div-card-div-cls{
+  
+  min-width: inherit;
+  max-width: inherit;
+  width:100%;
+}
+}

@@ -1,0 +1,442 @@
+<header id="main">
+    <div class="container-fluid">
+
+        <nav class="px-0 navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" (click)="gotohome()" href="javascript:;" data-aos-delay="600" data-aos="fade-right">
+
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/main-home/Ocademylogo.svg" alt="" class="img-fluid">
+
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav customnavcls">
+                    <li class="dropdown nav-item pull-left">
+                        <a href="javascript:void(0)" (mouseover)="showAllCats()" class="dropdown-toggle nav-link"
+                            data-toggle="dropdown">Categories
+                        </a>
+
+                        <div class="dropdown-content" *ngIf="showAllCatscls" (mouseleave)="MOUSELEAVE()">
+                            <ul>
+                                <ng-container *ngFor="let x of showAllCat">
+                                    <li (click)="gotoCateg(x.categoryName)"
+                                        (mouseenter)="onovershowSubCat(x.categoryName)">
+                                        <a href="javascript:void(0)">{{x.categoryName}} <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                                viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor"
+                                                >
+                                                <path fill-rule="evenodd"
+                                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                            </svg></a>
+
+                                    </li>
+                                </ng-container>
+                            </ul>
+                            <div class="dropdown-content2">
+                                <ul>
+                                    <ng-container *ngFor="let y of showsubCat">
+                                        <li (click)="gotoCateg(y)" (mouseenter)="onoverSubCatshowTopics(y)">
+                                            <a href="javascript:void(0)">{{y}}
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"
+                                                    class="bi bi-chevron-right" fill="currentColor"
+                                                    xmlns="">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ng-container>
+                                </ul>
+                            </div>
+                            <div class="" [ngClass]="showtopicCls ? 'dropdown-content31' : 'dropdown-content3'">
+                                <ul>
+                                    <ng-container *ngFor="let z of showTopicsNames">
+                                        <li (click)="gotoCateg(z)">
+                                            <a href="javascript:void(0)">{{z}}</a>
+                                        </li>
+                                    </ng-container>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                    <li class="nav-item w-lg" id="login-nav">
+                        <input type="text" class="form-control" id="inputValidation" [(ngModel)]="txtsearch"
+                            autocomplete="off" (keyup)="categorySearch()" placeholder="search for anything">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </li>
+
+                    <li class="nav-item" *ngIf="hideTab" id="login-nav">
+                        <a class="btn-ls" data-toggle="modal" data-target="#exampleModal">
+                            Log in
+                        </a>
+                        <!-- <a class="btn-ls"  (click)="showModal()" >Log in</a> -->
+                    </li>
+
+                    <!-- *ngIf="searchDivBox"  -->
+
+                    <div class="search-div col-lg-4 offset-lg-1" *ngIf="searchDivBox">
+                        <tr *ngFor="let coursenamess of final | searchPipe:txtsearch"
+                            (click)="gotoCateg(coursenamess)">
+                            {{coursenamess}}
+                        </tr>
+                    </div>
+
+
+                    <ul class="nav navbar-nav navbar-right customcls">
+
+                        <li class="nav-item" *ngIf="hideTab" id="login-nav">
+                            <a class="nav-link" href="javascript:;">You are a Guest</a>
+                        </li>
+
+
+                        <li class="nav-item" *ngIf="showTab" id="login-nav" (click)="gotoTutor();">
+                            <a class="nav-link tutotName">Become a Tutor</a>
+                        </li>
+
+                        <li class="nav-item" id="login-nav">
+                            <a class="nav-link" href="javascript:;">
+                                <i class="fa fa-heart-o fa-heart-cls" aria-hidden="true"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mr10" id="login-nav">
+                            <a class="nav-link" href="javascript:;">
+                                <span matBadge="0" matBadgeOverlap="false">
+                                    <i class="fa fa-shopping-cart fa-shopping-cls" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mr10" (mouseleave)="mouseouthide()" id="login-nav">
+                            <a class="nav-link" (mouseover)="notificationPopup()" (click)="studentNotificationMethod()"
+                                href="javascript:;">
+                                <button class="notification" mat-icon-button mat-button
+                                    aria-label="Example icon button with a vertical three dot icon">
+                                    <i class="fa fa-bell-o" aria-hidden="true" matBadge="0" matBadgePosition="after"
+                                        matBadgeColor=""></i>
+                                </button>
+                            </a>
+                            <div class="user-dropdown-cls-content" *ngIf="openNotificationpopUp">
+                                <ul class="dropdown-sub">
+                                    <li class="dropdown-option dropdown-user-options-cls">
+                                        <p>
+                                            {{getNotify}}
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item user-dropdown-cls " (click)="showUserDivMethod()" *ngIf="showTab">
+                            <ng-container>
+                                <button class="dropbtn user mr-3" mat-mini-fab color="primary"
+                                    aria-label="Example icon button with a menu icon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <div class="user-dropdown-cls-content" *ngIf="showUserDiv">
+
+                                        <ul class="dropdown-sub">
+                                            <li class="dropdown-option dropdown-user-options-cls">
+
+
+
+                                                <button class="user mr-3" mat-mini-fab color="primary"
+                                                    aria-label="Example icon button with a menu icon">
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                                </button>
+
+                                                <div class="welcome">
+                                                    <p class="user-name-title-cls">
+                                                        {{testLoginUser}}
+                                                    </p>
+                                                </div>
+
+                                            </li>
+                                            <li class="dropdown-option" (click)="mylearning()">
+                                                <a href="javascript:;">
+                                                    My Learning
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option" (click)="myOnlineClasses()">
+                                                <a href="javascript:;">
+                                                    My Online Classes
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option" (click)="mycart()">
+                                                <a href="javascript:;">
+                                                    My Cart
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option" (click)="mylearning()">
+                                                <a href="javascript:;">
+                                                    WishList
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option">
+                                                <a href="javascript:;">
+                                                    Notifications
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option">
+                                                <a href="javascript:;">
+                                                    Account Settings
+                                                </a>
+                                            </li>
+
+                                            <li class="dropdown-option" (click)="paymentMethod()">
+                                                <a href="javascript:;">
+                                                    Payment Methods
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option">
+                                                <a href="javascript:;" (click)="purchasehist()">
+                                                    Purchase History
+                                                </a>
+                                            </li>
+
+                                            <li class="dropdown-option">
+                                                <a href="javascript:;" (click)="gotoprofile()">
+                                                    Edit Profile
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option">
+                                                <a href="javascript:;">
+                                                    Help
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-option">
+                                                <a href="javascript:;" (click)="gotoLogOut()">
+                                                    Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </button>
+                            </ng-container>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<!-- signUp Modal Box  -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="closesigninmodal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body custompadding">
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/bg-signin.svg" alt="" class="bg-img">
+                <div class="row m-0 relative">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="left-sign">
+
+                            <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/signin.svg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="login-right">
+                            <p class="right-title">Log In to Your <br /> Ocademy Account!</p>
+                            <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-envelope-fill" fill="currentColor"
+                                                >
+                                                <path fill-rule="evenodd"
+                                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <input type="text" formControlName="username"
+                                        class="form-control emailAddress-input-cls"
+                                        [ngClass]="{ 'is-invalid':(submitted  || f.username.touched) && f.username.errors }"
+                                        placeholder="User Name">
+                                    <div *ngIf="(submitted  || f.username.touched) && f.username.errors"
+                                        class="invalid-feedback invalid-feedback-cls">
+                                        <div *ngIf="f.username.errors.required">username is required</div>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill"
+                                                fill="currentColor" >
+                                                <path
+                                                    d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <input type="password" formControlName="password"
+                                        class="form-control password-input-cls"
+                                        [ngClass]="{ 'is-invalid':(submitted  || f.password.touched) && f.password.errors }"
+                                        placeholder="Password">
+                                    <div *ngIf="(submitted  || f.password.touched) && f.password.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">Password is required</div>
+                                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="login-btn">Login</button>
+
+                                <a class="forgotpasswrd" href="javascript:;">Forgot Password?</a>
+
+                                <!-- <p class="donthaveacnt signuptxt">Don't have an account? <a class="signup"
+                                        href="javascript:;" (click)="modalclose()" data-toggle="modal"
+                                        data-target="#signupmodal">Sign up</a></p> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- sign up modal -->
+<div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="signupmodalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
+                <button type="button" class="close" data-dismiss="modal" id="closesignupmodal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body custompadding">
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/bg-signin.svg" alt="" class="bg-img">
+                <div class="row m-0 relative">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="left-sign">
+                            <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/signup.svg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="signup login-right">
+                            <p class="right-title">Become an Ocademy Instructor!</p>
+                            <span>Discover a supportive community of online instructors. Get instant access to all
+                                course creation resources</span>
+                            <form [formGroup]="signUpForm" (ngSubmit)="onSiginUpSubmit()">
+
+                                <div class="input-group mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-person-circle" fill="currentColor"
+                                                >
+                                                <path
+                                                    d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z" />
+                                                <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+
+                                    <input type="text" formControlName="username"
+                                        class="form-control emailAddress-input-cls"
+                                        [ngClass]="{ 'is-invalid':(submitted  || s.username.touched) && s.username.errors }"
+                                        placeholder="User Name">
+                                    <div *ngIf="(submitted  || s.username.touched) && s.username.errors"
+                                        class="invalid-feedback invalid-feedback-cls">
+                                        <div *ngIf="s.username.errors.required">username is required</div>
+                                    </div>
+
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"
+                                                class="bi bi-envelope-fill" fill="currentColor"
+                                                >
+                                                <path fill-rule="evenodd"
+                                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+
+                                    <input type="text" formControlName="email"
+                                        class="form-control emailAddress-input-cls"
+                                        [ngClass]="{ 'is-invalid':(submitted || s.email.touched) && s.email.errors }"
+                                        placeholder="email Address">
+                                    <div *ngIf="(submitted  || s.email.touched) && s.email.errors"
+                                        class="invalid-feedback invalid-feedback-cls">
+                                        <div *ngIf="s.email.errors.required">Email is required</div>
+                                        <div *ngIf="s.email.errors.email">Email must be a valid email address</div>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-lock-fill"
+                                                fill="currentColor" >
+                                                <path
+                                                    d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+
+                                    <input type="password" formControlName="password"
+                                        class="form-control password-input-cls"
+                                        [ngClass]="{ 'is-invalid':(submitted  || s.password.touched) && s.password.errors }"
+                                        placeholder="Password">
+                                    <div *ngIf="(submitted  || s.password.touched) && s.password.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="s.password.errors.required">Password is required</div>
+                                        <div *ngIf="s.password.errors.minlength">Password must be at least 6 characters
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" [disabled]="true" class="form-check-input" id="checksignup">
+                                    <label class="form-check-label signupcontent" for="checksignup">I want to get the
+                                        most
+                                        out of my experience, by receiving emails with insider tips, motivation, special
+                                        updates and promotions reserved for instructiors.</label>
+                                </div>
+
+                                <button class="login-btn">Sign Up</button>
+
+                            </form>
+                            <p class="termsandconditions">By signing up, you agree to our <a class=""
+                                    href="javascript:;">Terms of use</a> and <a class="" href="javascript:;">Privacy
+                                    policy</a></p>
+                            <p class="donthaveacnt">Already have an account? <a class="signup" href="javascript:;"
+                                    (click)="signupclose()" data-toggle="modal" data-target="#exampleModal">Log in</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- end Signup Modal Box  -->

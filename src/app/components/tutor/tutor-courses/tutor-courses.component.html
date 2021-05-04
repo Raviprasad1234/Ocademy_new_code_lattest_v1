@@ -1,0 +1,597 @@
+<div class="sec-container3">
+    <div class="serif">
+        <div class="">
+            <div class="first-div">
+                <div class="inside-first-div">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="svg1" width="1em" height="1em" viewBox="0 0 16 16"
+                        class="bi bi-file-earmark-text" fill="currentColor">
+                        <path
+                            d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                        <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
+                        <path fill-rule="evenodd"
+                            d="M5 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                    </svg> <br>
+                    <!-- <button mat-raised-button color="primary" class="mt-5">Create New Course</button> -->
+                    <button class="btn  sreate-new-coursebtn-cls "
+                        mat-raised-button  data-toggle="modal" data-target="#exampleModal">
+                        Create Your Course
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="course-conternt-middle-text-cls">
+                <p class="middle-content">Based on your experience we think these resources will be helpful
+                </p>
+            </div>
+
+
+            <div class="row" *ngIf="noDatafield">
+
+                <div class="input-group form-group col-md-4">
+                    <input class="form-control py-2" type="search" placeholder="Search Course"
+                        [(ngModel)]="TutorCourseSearchFilter" value="" id="example-search-input">
+                    <span class="input-group-append">
+                        <button class="btn  btn-search-cls" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+
+                <div class="col-md-4">
+
+
+                    <select name="select" id="select" 
+                    class="tutor_select_option_cls form-control"
+                        (ngModelChange)="onTutorSearchOptionsSelected($event)" [(ngModel)]="TutorCourseSelected">
+                        <option *ngFor="let item of SelectedTutorCreatedCourses"
+                        
+                        [ngValue]="item"
+                            [disabled]="item.id==1">{{item.label}}</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- created course cards  -->
+
+            <div class="get-started-div">
+                <div class="row">
+
+                    <!-- ng for data  -->
+                    <!-- (click)="nav_to_courseMaker()" -->
+                    <ng-container *ngIf="( StudentAllCoursesData | filter : TutorCourseSearchFilter) as result">
+
+                        <div *ngFor="let c of result | paginate:{itemsPerPage:8,currentPage:cp}; let i = index"
+                            (click)="nav_to_courseMaker(c)"
+                            class="get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-3 col-xs-6">
+                            <div class=" card text-center get-started-div-card-div-cls h-100  ">
+                                <!-- (click)="checkVideoPlayer(c, i)" -->
+
+                                <span *ngIf="(c.coverImageUrl !== undefined && c.coverImageUrl !== null)">
+                                    <img class="img-fluid img-thumbnail coverimage-cls" src="{{c.coverImageUrl}}"
+                                        alt="">
+                                </span>
+
+
+                                <span *ngIf="(c.coverImageUrl == null)">
+                                    <div class="video_player1">
+                                        <!-- <video (playing)="onPlayingVideo($event)" width="100%" height="100%" controls>
+                                        <source src="{{c.fileUrl}}">
+                                    </video> -->
+                                        <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt=""> -->
+                                        <div class="crse_txt_card">
+                                            <p>
+                                                <span class="label-first-char"> {{c.courseTitle | slice:0:2 }} </span>
+                                                <!-- <span class="label-first-char">J</span>
+                                            <span class="label-second-char">a</span> -->
+                                            </p>
+                                        </div>
+                                    </div>
+                                </span>
+
+                                <!-- modal -->
+                                <div class="modal fade" id="myModal{{i}}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 style="font-size: 18px; margin: 0; color: #000000;text-transform: capitalize;"
+                                                    class="card-title">{{c.courseTitle}}</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+
+
+
+                                                <div class="embed-responsive embed-responsive-16by9">
+
+                                                    <video allowfullscreen autoplay="true" controlsList="nodownload"
+                                                        width="100%" height="100%" controls>
+                                                        <source src="{{c.fileUrl}}">
+                                                    </video>
+                                                    <!-- <iframe class="embed-responsive-item" id="loadIframe{{i}}" width="100%"
+                                                    height="400" src="" allowfullscreen></iframe> -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholderimg.png" 
+                                class="img-fluid" alt=""> -->
+
+                                <!-- <i class="fa fa-ellipsis-v dot-btn-cls" aria-hidden="true"></i> -->
+
+                                <!-- <i class="fa fa-ellipsis-v dot-btn-cls" (click)="showDotsMethod(i , c)"
+                                aria-hidden="true"></i>
+
+                            <div class="share-fav-cls" *ngIf="c.showsharediv">
+                                <p>
+                                    <i class="fa fa-share  " aria-hidden="true"></i>
+                                    <span>share </span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <span> favourite </span>
+                                </p>
+                                <p>
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    <span> Archived </span>
+                                </p>
+                            </div> -->
+
+
+                                <div class="get-started-div-card-text-cls card-body">
+                                    <h5 class="card-title">{{c.courseTitle}}</h5>
+                                    <p class="card-text">
+                                        {{c.category}}
+                                    </p>
+                                    <div class="progress  course-card-progress-cls">
+                                        <div class="progress-bar progress-bar-complete-color-cls" style="width:70%">
+                                        </div>
+                                    </div>
+
+
+                                    <div *ngIf="c.CStarted">
+                                        <div class="pull-left">
+                                            <p class="card-text progress-bar-percent-text-cls">
+                                                30% Complete
+                                            </p>
+                                        </div>
+                                        <div class="pull-right">
+                                            <p class="progress-bar-percent-text-cls">
+                                                <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                                <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                                <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                                <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                                <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <ng-container *ngIf="!c.CStarted">
+                                        <div class="pull-left">
+                                            <p class=" progress-bar-start-course-text-cls">
+                                                <span *ngIf="c.publishStatus  == 'Approved'">
+                                                    Public
+                                                </span>
+                                                <span *ngIf="c.publishStatus  == 'Waiting For Approval'">
+                                                    Waiting For Approval
+                                                </span>
+                                                <span *ngIf="c.publishStatus  == 'Unpublished'">
+                                                    Edit/Manage Course
+                                                </span>
+                                                <!-- {{c.publishStatus}} 12 -->
+                                            </p>
+                                        </div>
+                                        <div class="pull-right">
+                                        </div>
+                                    </ng-container>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <ng-container *ngIf="result.length === 0">
+                            <div class="alert alert-primary" style="text-align: center; display: block;width: 100%;"
+                                role="alert">
+                                {{noresultMessage}}
+                            </div>
+                        </ng-container>
+
+
+
+
+                    </ng-container>
+
+                    <!-- end ng for cards  -->
+
+                </div>
+                <div class="paginationDiv">
+                    <pagination-controls autoHide="true" responsive="true" (pageChange)="cp=$event" class=" pagination">
+                    </pagination-controls>
+                </div>
+            </div>
+
+
+
+            <!--end created course cards  -->
+
+            <div class="card-deck p-3 " *ngIf="noData">
+
+                <div class="card customrelative" style="border: none;
+           box-shadow: 0px 1px 2px 1px #dad9d9;">
+                    <div class="card-body text-justify">
+                        <p class="card-title text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                                class="bi bi-laptop" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M13.5 3h-11a.5.5 0 0 0-.5.5V11h12V3.5a.5.5 0 0 0-.5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11z" />
+                                <path d="M0 12h16v.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5V12z" />
+                            </svg>
+                        </p>
+                        <h4 class="card-text text-center card-headercls">
+                            Create an <br> Engaging Course
+                        </h4>
+                        <p class="card-text" style="margin-top:20px;">
+                            To be a successful tutor, make the course engaging so that the students actively participate
+                            and gain useful knowledge. Create a course according to the Course Quality Checklist (CQC)
+                            which focuses on proficient, attractive and marketable content that is beneficial to the
+                            students. Your students learn with interaction, this is possible when you as a tutor take an
+                            initiative and make the lecture interesting with exchange of ideas and resources.
+
+                        </p>
+                        <div class="getstartedbtn">
+                            <h4>Get Started</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card customrelative" style="border: none;
+              box-shadow: 0px 1px 2px 1px #dad9d9;">
+                    <div class="card-body text-justify">
+                        <p class="card-title text-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                class="bi bi-file-earmark-play" viewBox="0 0 16 16">
+                                <path
+                                    d="M6 11.117V6.883a.5.5 0 0 1 .757-.429l3.528 2.117a.5.5 0 0 1 0 .858l-3.528 2.117a.5.5 0 0 1-.757-.43z" />
+                                <path
+                                    d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                                <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
+                            </svg>
+                        </p>
+                        <h4 class="card-text text-center card-headercls">
+                            Get Started with <br> Video
+                        </h4>
+                        <p class="card-text" style="margin-top:20px;">
+                            A video lecture is the best way to teach and impart knowledge among the students. The best
+                            part of a video lecture is you get a chance to include AV equipment which adds an extra edge
+                            thereby making the lecture appealing to the students. High quality video lectures help in
+                            striking a chord with the students as they have the potential to make learning effective and
+                            interesting. Video lectures also offer the students an opportunity to test their levels of
+                            learning and improve their learning capabilities.
+
+                        </p>
+                        <div class="getstartedbtn">
+                            <h4>Get Started</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card customrelative" style="border: none;
+                box-shadow: 0px 1px 2px 1px #dad9d9;">
+                    <div class="card-body text-justify">
+                        <p class="card-title text-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                class="bi bi-receipt" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27zm.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0l-.509-.51z" />
+                                <path fill-rule="evenodd"
+                                    d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </p>
+                        <h4 class="card-text text-center card-headercls">
+                            Build Your Audience
+                        </h4>
+                        <p class="card-text" style="margin-top: 44px;">
+                            Building an audience for your course is crucial for its success. A little research goes a
+                            long way in getting to know the audience better. Ask yourself some questions like who the
+                            course is targeted to. The age, location, educational qualification, interests, values and
+                            so on. These questions act as the pointers to be prepared from your end and prepare the
+                            marketing strategies accordingly.
+
+                        </p>
+                        <div class="getstartedbtn">
+                            <h4>Get Started</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card customrelative" style="border: none;
+                box-shadow: 0px 1px 2px 1px #dad9d9;">
+                    <div class="card-body text-justify">
+                        <p class="card-title text-center">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                class="bi bi-geo" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
+                            </svg>
+                        </p>
+                        <h4 class="card-text text-center card-headercls">
+                            Join the Newcomer <br> Challenge!
+                        </h4>
+                        <p class="card-text" style="margin-top:20px;">
+                            If you are a newcomer to this platform, enroll yourself in the Newcomer Challenge and get
+                            yourself ready with the right resources and tips. The team will guide you to make the
+                            courses interesting and appealing which are readily available with our team. Eligible tutors
+                            who get their first course live and online will receive a special bonus as a token of
+                            appreciation. So, get yourself ready and join this exciting challenge today!
+
+                        </p>
+                        <div class="getstartedbtn">
+                            <h4>Get Started</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <div class="model-section-cls">
+
+        <div class="modal fade" data-backdrop="static" data-keyboard="false" id="exampleModal" tabindex="-1"
+            role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Create New Course</h4>
+                        <button type="button" class="close " (click)="resetCreateSectionForm()" id="closebtn"
+                            data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                            <p style="font-weight: bold;"> Title <span style="font-weight: normal;">
+                                    (Maximum 60 Characters) </span>
+                            </p>
+
+
+                            <input type="text" formControlName="title"
+                                (keydown.enter)="removeDuplicatesTitleMethod($event)" placeholder="Enter Title Name"
+                                class="form-control first-input"
+                                [ngClass]="{ 'is-invalid':(submitted  || f.title.touched) && f.title.errors }" />
+                            <div *ngIf="(submitted  || f.title.touched) && f.title.errors"
+                                class="invalid-feedback invalid-feedback-cls">
+                                <div *ngIf="f.title.errors.required">Title is required</div>
+                                <div *ngIf="f.title.errors?.maxlength">
+                                    Title can be max 60 characters long.
+                                </div>
+
+                                <div *ngIf="f.title.errors.pattern">
+                                    Spaces are not allowed at starting and ending of the Title
+                                </div>
+                                <div *ngIf="registerForm.get('title').errors && registerForm.get('title').errors['exists']"
+                                    style="color:red;">
+                                    Title name is already exists!
+                                </div>
+                            </div>
+
+
+                            <!-- category -->
+
+                            <div class=" ">
+                                <p class="font-weight-bold">Category</p>
+                                <select class="form-control second-input Categories-select" formControlName="Categories"
+                                    [ngClass]="{ 'is-invalid':(submitted  || f.Categories.touched) && f.Categories.errors }"
+                                    (change)="OnCategoryChange($event.target.value)">
+                                    <option value="">Select Category</option>
+                                    <option [value]="category.categoryName"
+                                        *ngFor="let category of  get_all_dropdown_data">
+                                        {{category.categoryName}}</option>
+
+                                </select>
+                                <div *ngIf="(submitted || f.Categories.touched) && f.Categories.errors"
+                                    class="invalid-feedback invalid-feedback-cls">
+                                    <div *ngIf="f.Categories.errors.required">Category is required</div>
+                                </div>
+                            </div>
+
+                            <!-- catrogory ends   -->
+
+                            <!--  sub category -->
+
+                            <div class=" ">
+                                <p class="font-weight-bold">Sub Category</p>
+                                <select class="form-control second-input Categories-select"
+                                    formControlName="Subcategory"
+                                    [ngClass]="{ 'is-invalid':(submitted || f.Subcategory.touched) && f.Subcategory.errors }"
+                                    (change)="subfunsubmit($event.target.value)">
+                                    <option value="">Select Sub-Category</option>
+                                    <option [value]="x" *ngFor="let x of SubCatrgoriesData">
+                                        {{x}}
+                                    </option>
+
+                                </select>
+                                <div *ngIf="(submitted || f.Subcategory.touched) && f.Subcategory.errors"
+                                    class="invalid-feedback invalid-feedback-cls">
+                                    <div *ngIf="f.Subcategory.errors.required">Sub category is required</div>
+                                </div>
+                            </div>
+
+                            <!-- end sub category  -->
+
+
+                            <!-- topic name   -->
+
+                            <div class=" ">
+                                <p class="font-weight-bold">Topic Name</p>
+                                <select class="form-control third-input Categories-select" formControlName="topicName"
+                                    [ngClass]="{ 'is-invalid':(submitted || f.topicName.touched ) && f.topicName.errors }"
+                                    aria-placeholder="hii">
+                                    <option value="">Select Topic Name</option>
+                                    <option [value]="xx" *ngFor="let xx of subsubcat">{{xx}}</option>
+                                </select>
+                                <div *ngIf="(submitted || f.topicName.touched) && f.topicName.errors"
+                                    class="invalid-feedback invalid-feedback-cls">
+                                    <div *ngIf="f.topicName.errors.required">Topic Name is required</div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!-- end topic name  -->
+
+
+
+
+                            <div class="">
+                                <p class="font-weight-bold">Levels</p>
+                                <select class="form-control third-input Categories-select" formControlName="Level"
+                                    [ngClass]="{ 'is-invalid': (submitted || f.Level.touched ) && f.Level.errors }"
+                                    id="" aria-placeholder="hii">
+                                    <option value="">Select Levels</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Expert">Expert</option>
+                                    <option value="Advanced">Advanced</option>
+
+                                </select>
+                                <div *ngIf="(submitted || f.Level.touched ) && f.Level.errors"
+                                    class="invalid-feedback invalid-feedback-cls">
+                                    <div *ngIf="f.Level.errors.required">Level is required</div>
+                                </div>
+                            </div>
+                            <div class=" ">
+                                <p class="font-weight-bold">Language</p>
+                                <select class="form-control third-input Categories-select" formControlName="Languages"
+                                    [ngClass]="{ 'is-invalid': (submitted || f.Languages.touched )  && f.Languages.errors }"
+                                    id="" aria-placeholder="hii">
+                                    <option value="">Select Language</option>
+                                    <option value="english">English</option>
+                                    <option value="hindi">Hindi</option>
+                                    <option value="spanish">Spanish</option>
+                                    <option value="German">German</option>
+                                    <option value="Telugu">Telugu</option>
+                                </select>
+                                <div *ngIf="(submitted || f.Languages.touched ) && f.Languages.errors"
+                                    class="invalid-feedback invalid-feedback-cls">
+                                    <div *ngIf="f.Languages.errors.required">Language is required</div>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <p class="font-weight-bold">Price</p>
+
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="padding: 4px;" id="basic-addon1">$</span>
+                                    </div>
+                                    <input type="text" aria-describedby="basic-addon1" aria-label="Price"
+                                        formControlName="Price" appTwoDigitDecimaNumber (onkeyup)="CheckPrice($event)"
+                                        maxlength="10"
+                                        [ngClass]="{ 'is-invalid': (submitted || f.Price.touched ) && f.Price.errors }"
+                                        class="form-control four-input" placeholder="Enter the price ">
+                                    <div *ngIf="(submitted || f.Price.touched ) && f.Price.errors"
+                                        class="invalid-feedback invalid-feedback-cls">
+                                        <div *ngIf="f.Price.errors.required">Price is required</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="  ">
+                                <div class="make-it-btn-cls">
+
+
+                                    <div class="checkbox">
+                                        <label (change)="onacceptTermsChange($event)" for="acceptTerms"
+                                            class="form-check-label">
+                                            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms"
+                                                class="form-check-input"
+                                                [ngClass]="{ 'is-invalid': (submitted || f.acceptTerms.touched ) && f.acceptTerms.errors }" />
+
+                                            <span>
+                                                Make It Free
+                                            </span>
+                                        </label>
+                                        <div *ngIf=" (submitted || f.acceptTerms.touched )  && f.acceptTerms.errors"
+                                            class="invalid-feedback invalid-feedback-cls">Accept Ts
+                                            & Cs is required</div>
+
+                                    </div>
+
+
+                                    <!-- <label for="vehicle1">
+                                         <input type="checkbox" name="vehicle1" value="Bike"> &nbsp;
+                                       <span class="makeit-span-cls"> Make it Free </span>  
+                                      </label> &nbsp; &nbsp;            -->
+
+
+                                </div> <br>
+
+                                <!-- <div class="row">
+                                      <div class="col-sm-12">
+                                          <input type="file" id="myfile" name="myfile">
+                                          <button type="button" class="btn btn-primary BOTTONS" >Upload</button>
+          
+                                      </div>
+                                  </div>    -->
+
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append customwidth mb-2">
+                                        <input type="file" #myInput (change)="onFileChanged($event)"
+                                            accept="image/x-png,image/gif,image/jpeg">
+                                    </div>
+
+                                    <button class="btn btn BOTTONS  gradient-button gradient-button-4"
+                                        (click)="UploadCoverImage()" [disabled]="isDisabled" type="button">Upload cover
+                                        image</button>
+
+                                    <span class="errmsg" [ngStyle]="{'display': showerrorDiv ? 'block' : '' }">Please
+                                        upload cover image.
+                                    </span>
+
+                                    <span class="errmsg" [ngStyle]="{'display': showfiletypeError ? 'block' : '' }">
+                                        <!-- Please Upload jpeg,png Image Format. -->
+                                        Please Upload jpg, jpeg, png, gif Image Format
+                                    </span>
+
+                                </div>
+
+                                <!-- <div class=" inputfile" >
+                                    <input type="file" id="myfile" name="myfile">
+                                  </div> <br>
+                                    <div >
+                                      <button type="button" class="btn btn-primary BOTTONS" >Upload</button>
+                                    </div>  -->
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" (click)="onReset()"
+                                    class="btn btn gradient-button gradient-button-4 close-btn-cls"
+                                    data-dismiss="modal">Cancel</button>
+                                <button type="submit"
+                                    class="btn btn  create-btn-cls  gradient-button gradient-button-4">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

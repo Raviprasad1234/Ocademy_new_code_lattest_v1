@@ -1,0 +1,174 @@
+<!-- <app-student-header></app-student-header> -->
+<app-global-header></app-global-header>
+<div class="container-fluid header-div" >
+  <div class="container ">
+    <h2 class="heading">Edit Profile</h2>
+  </div>
+</div>
+<div class="container mt-5" >
+   <h4 class="first-title-tag">Edit Profile</h4>
+
+   <!-- <form [formGroup]="editProfileForm" (ngSubmit)="submitEditProfileData()">
+
+
+       <div class="form-group mt-4">
+         <label for="username" class="labell">Username</label>
+         <input type="text" class="form-control" formControlName="username" autocomplete="off"
+          placeholder="Enter Username" name="username"> 
+
+          <div *ngIf="f.username.touched && f.username.invalid" class="alert alert-danger">
+            <div *ngIf="f.username.errors.required">username is required.</div>
+          </div>
+    
+
+       </div>
+       <div class="form-group">
+           <label for="email" class="labell">Email</label>
+           <input type="email" class="form-control" formControlName="email" autocomplete="off" placeholder="Enter Email Address" name="email">
+         
+           <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+            <div *ngIf="f.email.errors.required">email is required.</div>
+            <div *ngIf="f.email.errors.email">email is must be  Email Address.</div>
+          </div>
+    
+    
+      </div>
+    
+      <div class="form-group">
+          <label for="newpassword"  class="labell">New Password</label>
+          <input 
+              formControlName="newpassword"
+              id="newpassword" 
+              type="password" 
+              class="form-control">
+          <div *ngIf="f.newpassword.touched && f.newpassword.invalid" class="alert alert-danger">
+              <div *ngIf="f.newpassword.errors.required">Password is required.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="confirm_password" class="labell" >Confirm Password</label>
+          <input 
+              formControlName="confirm_password"
+              id="confirm_password" 
+              type="password" 
+              class="form-control">
+          <div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger">
+              <div *ngIf="f.confirm_password.errors.required">Password is required.</div>
+              <div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+          </div>
+      </div>
+     
+       <div class="mt-5  submit-button-div" >     
+        <button class="btn btn-primary submit-botton" type="submit" [disabled]="!editProfileForm.valid">Save</button>
+       </div>
+       
+     </form> -->
+
+
+
+     <form [formGroup]="editProfileForm" class="editprofileform" (ngSubmit)="submitEditProfileData()">
+
+
+      <div class="form-group mt-4">
+        <label for="username" class="labell">Full Name</label>
+        <input type="text" disabled class="form-control" formControlName="username" autocomplete="off"
+         placeholder="Enter Full Name" name="username" [ngClass]="{ 'is-invalid':(submitted  || f.username.touched) && f.username.errors }" > 
+
+
+
+         <div *ngIf="(submitted  || f.username.touched) && f.username.errors"
+             class="invalid-feedback invalid-feedback-cls">
+               <div *ngIf="f.username.errors.required" style="color: red;">Full Name is required</div>
+               <div *ngIf="f.username.errors.minlength" style="color: red;">Full Name is Minimum 6 characters</div>
+               <div *ngIf="f.username.errors.maxlength" style="color: red;">Full Name is Maximum 20 characters</div>
+         </div>
+
+
+         <!-- <div *ngIf="(submitted  || f.username.touched) && f.username.errors"
+             class="invalid-feedback invalid-feedback-cls">
+               <div *ngIf="f.username.errors.required" style="color: red;">Username is required</div>
+         </div> -->
+
+
+      </div>
+      <div class="form-group">
+          <label for="email" class="labell">Email</label>
+          <input type="email"  disabled  class="form-control" [ngClass]="{ 'is-invalid':(submitted  || f.email.touched) && f.email.errors }" 
+          formControlName="email" autocomplete="off" placeholder="Enter Email Address" name="email">        
+
+         <div *ngIf="(submitted  || f.email.touched) && f.email.errors"
+             class="invalid-feedback invalid-feedback-cls">
+              <div *ngIf="f.email.errors.required"style="color: red;" >Email is required</div>
+         </div>
+
+     </div>
+
+
+
+     <div class="form-group">
+        <label for="currentpassword" class="labell" >Current Password</label>
+        <input formControlName="currentpassword" autocomplete="off" 
+          id="currentpassword"  [ngClass]="{ 'is-invalid':(submitted  || f.currentpassword.touched) && f.currentpassword.errors }"  
+            type="password" 
+            class="form-control">
+        <div *ngIf="(submitted  || f.currentpassword.touched) && f.currentpassword.errors"
+            class="invalid-feedback invalid-feedback-cls" >
+             <div *ngIf="f.currentpassword.errors.required" style="color:red;">Current password is required</div>
+             <!-- <div *ngIf="f.currentpassword.errors.pattern">Your password must be at least 8-16 characters long, contain at least one number, special character and have a mixture of uppercase and lowercase letters</div> -->
+        </div>
+    </div>
+
+
+
+
+
+
+     <div class="form-group">
+         <label for="newpassword"  class="labell">New Password</label>
+         <input formControlName="newpassword" avoidSpacess 
+         (keydown.space)="$event.preventDefault()"
+         [ngClass]="{ 'is-invalid':(submitted  || f.newpassword.touched) && f.newpassword.errors }"  id="newpassword" type="password"   class="form-control" >
+        
+         <!-- <div *ngIf="(submitted  || f.newpassword.touched) && f.newpassword.errors"
+             class="invalid-feedback invalid-feedback-cls">
+              <div *ngIf="f.newpassword.errors.required"  style="color:red;">Newpassword is required</div>
+         </div> -->
+    
+         <div *ngIf="(submitted  || f.newpassword.touched) && f.newpassword.errors"
+             class="invalid-feedback invalid-feedback-cls">
+              <div *ngIf="f.newpassword.errors.required"  style="color:red;">New password is required</div>
+              <div *ngIf="f.newpassword.errors.minlength || f.newpassword.errors.maxlength || f.newpassword.errors.pattern" style="color: red;"> Your password must be at least 8-16 characters long, contain at least one number, special character and have a mixture of uppercase and lowercase letters</div>
+               
+         </div>
+        </div>
+
+     <div class="form-group">
+         <label for="confirm_password" class="labell" >Confirm Password</label>
+         <input formControlName="confirm_password" id="confirm_password"  [ngClass]="{ 'is-invalid':(submitted  || f.confirm_password.touched) && f.confirm_password.errors }"  
+             type="password" 
+             class="form-control">
+         <div *ngIf="(submitted  || f.confirm_password.touched) && f.confirm_password.errors"
+             class="invalid-feedback invalid-feedback-cls" >
+              <div *ngIf="f.confirm_password.errors.required" style="color:red;">Confirm password is required</div>
+             <div *ngIf="f.confirm_password.errors.confirmedValidator"  style="color:red;">Password and Confirm Password must be match.</div>
+         </div>
+     </div>
+    
+      <div class="mt-5  submit-button-div" >     
+        <button class="btn btn-default submit-botton-cancel mr-3" (click)="backtohome()" >Cancel</button>      
+       <button class="btn btn submit-botton" type="submit" >Save</button>
+       <!-- [disabled]="!editProfileForm.valid" -->
+      </div>
+      
+    </form>
+
+
+
+
+
+
+
+
+    </div>
+ <app-student-footer></app-student-footer>

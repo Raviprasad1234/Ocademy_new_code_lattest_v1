@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ocademy</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="googlebot" content="noindex" />
+  <link rel="icon" type="image/x-icon" href="assets/img/on-passive/fav-icon.png">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="assets/js/clipboard.min.js"></script>
+  <style>
+    /* add in index page */
+
+    body {
+      top: 0 !important;
+    }
+
+    div#goog-gt-tt {
+      display: none !important;
+    }
+
+    .goog-te-combo {
+      height: 35px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .goog-te-gadget .goog-te-combo {
+      width: 100%;
+    }
+
+    .goog-te-combo:focus {
+      outline: none !important;
+    }
+
+    .goog-te-banner-frame {
+      display: none;
+    }
+
+    .goog-te-gadget span {
+      display: none;
+    }
+
+
+    /* -------------------- */
+  </style>
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <app-root></app-root>
+  </div>
+
+  <script>
+
+    var clipboard = new ClipboardJS('.btn');
+    clipboard.on('success', function (e) {
+    });
+    clipboard.on('error', function (e) {
+    });
+
+  </script>
+
+</body>
+
+</html>

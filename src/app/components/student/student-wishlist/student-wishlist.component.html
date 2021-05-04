@@ -1,0 +1,138 @@
+
+<app-global-header></app-global-header>
+<section class="">
+  <div class="">
+    <nav class="navbar navbar-light student-navbar-div-cls">
+      <div class=" main-div-text-cls  container">
+        <h4 class="main-heading-cls">Wishlists</h4>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <div class="tab-content tab-content-custom-cls">
+        <div class="wishlist-data-cls">    
+          <!-- test wish list  -->
+          <div class="get-started-div">
+
+
+            <div class="form-group  search-btn-cls"> 
+              <div class="input-group">
+                <input class="form-control py-2 border-right-0 border" type="search"
+                   [(ngModel)]="searchformyLearning"
+                   name="searchformyLearning"
+                  placeholder="Search my Courses" id="example-search-input">
+                <span class="input-group-append">
+                  <div class="input-group-text "><i class="fa fa-search search-icon-cls"></i></div>
+                </span>
+              </div>
+            </div>
+
+
+
+
+            <div class="row mb-0">
+
+              <ng-container *ngIf="( getwishListArr | WishlistFilter : searchformyLearning) as result">
+
+              <div  *ngFor="let w of result"  
+              (click)="innerviewpage(w.id, w.courseTitle,w.category,w.subCategory,w.topic)"
+              class="get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-3 col-xs-6">
+                <div class=" card text-center get-started-div-card-div-cls h-100  ">
+                  <span *ngIf="(w.coverImageUrl !== undefined && w.coverImageUrl !== null)">
+                    <img class="img-fluid img-thumbnail coverimage-cls" src="{{w.coverImageUrl}}" alt="">
+                </span>
+
+                       
+                <span  *ngIf="(w.coverImageUrl == null)" >
+                    <div class="video_player1">
+                        <div class="crse_txt_card">
+                            <p>
+                                <span class="label-first-char"> {{w.courseTitle | slice:0:2 }} </span>
+                            </p>
+                        </div>
+
+                    </div>
+                </span>
+             
+
+
+                  <i class="fa fa-heart-o dot-heart-btn-cls " aria-hidden="true"></i>
+                  <div class="get-started-div-card-text-cls card-body">                    
+                    <p class="card-title">
+                      {{w.courseTitle}}  
+                    </p>
+                    <p class="card-text">
+                      {{w.subCategory}}
+                    </p>
+                    <div class="priceRating-div-sec-cls mt-3">
+                      <div class="priceRating-ratNum-sec-cls">
+                        <p>
+                          4.0
+                        </p>
+                      </div>
+
+                      <div class="priceRating-rating-sec-cls">
+                        <p class="progress-bar-percent-text-cls">
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i>
+                        </p>
+                      </div>
+
+                      <div class="priceRating-population-sec-cls">
+                           <p>  {{w.courseType}} </p>  
+                      
+                      </div>
+                    </div>
+                  
+                    <div class="wishlist-price-sec-cls">
+                      <i _ngcontent-lpf-c166="" aria-hidden="true" class="fa fa-usd"></i>
+                      <p  style="line-height: 1;
+                      padding-right: 11px;
+                      padding-left: 10px;" > {{w.price}} </p>
+                      <!-- <p> <s>{{w.price}}</s> </p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ng-container *ngIf="result.length === 0">
+                <div class="alert alert-primary" style="text-align: center; display: block;width: 100%;" role="alert">
+                    No Courses Available..!
+                  </div>
+            </ng-container>  
+  
+
+              </ng-container>
+
+              
+          
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+
+    </div>
+
+    <!-- <ng-container>
+      <div class=" mb-5 mt-5 alert alert-primary text-center nocontentmessage"  role="alert">
+        Not Available!
+      </div>  
+    </ng-container> -->
+   
+
+  </div>
+
+
+</section>
+
+<app-student-footer></app-student-footer>

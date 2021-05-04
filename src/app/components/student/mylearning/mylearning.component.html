@@ -1,0 +1,661 @@
+<!-- <app-main-home-header></app-main-home-header> -->
+<!-- <app-student-header></app-student-header> -->
+<app-global-header></app-global-header>
+<section class="mylearning-carosel-cls">
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators" id="myCarousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="mylearningimg-carosel-cls" src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/student_banner_1.jpg"
+          alt="Festival Season Sale">
+        <div class="carousel-caption">
+          <h3> Enlighten your future with  <br> Ocademy Online Education</h3>
+          <p>Start youself up for a prosperous future </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="mylearningimg-carosel-cls" src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/student_banner_2.jpg"
+          alt="Festival Season Sale">
+        <div class="carousel-caption">
+          <h3>   Don’t let learning stop </h3>
+          <p>Equip yourself with expertise that redefines your role and career path</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="mylearningimg-carosel-cls" src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/student_banner_3.jpg"
+          alt="Festival Season Sale">
+        <div class="carousel-caption">
+          <h3> Be better than the rest </h3>
+          <p>Master your craft with handpicked courses from Industry experts </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<section class="main-search-section-cls">
+  <div class="container">
+    <div class="row  mt-3 mb-3">
+      <h2 class="search-header">Let's start Learning, {{username}}</h2>
+    </div>
+
+    <section class="lets-learning-cls mb-3 mt-3"  *ngIf="!ifStudentNotPurchaseCourses">
+      <swiper [config]="config">
+
+        <div class="swiper-wrapper h-100">
+          <ng-container *ngFor="let c of StudentPurchaseCoursesArr">
+            <div class="swiper-slide lets-learning-main-cls" (click)="innerviewpage(c['id'], c['courseTitle'])">
+
+              <div class="lets-heading-learning-cls mt-2 ml-2">
+                <p>{{c.courseTitle}} </p>
+              </div>
+              <div class="lets-learning-video-section-cls m-2">
+
+                <span *ngIf="(c.coverImageUrl !== undefined && c.coverImageUrl !== null)">
+                  <img class="img-fluid img-thumbnail coverimage-cls" src="{{c.coverImageUrl}}" alt="">
+               </span>
+
+               <span  *ngIf="(c.coverImageUrl == null)" >
+                   <span class="label-first-char"> {{c.courseTitle | slice:0:2 }} </span>
+               </span>
+
+                <!-- <span class="label-first-char">{{c.courseTitle | slice: 0:2}} </span> -->
+                <div class="lets-learning-video-section-title-cls">
+                  <p class="topicnametxt">
+                    {{c.topic}}
+                  </p>
+                  <p class="languagetxt">
+                    {{c.language}}
+                  </p>
+                  <p class="titletxt">
+                    <span>
+                      {{c.level}}
+                    </span>
+                  </p>
+                </div>
+              </div>              
+            </div>
+          </ng-container>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+      </swiper>
+    </section>
+
+    <section  *ngIf="ifStudentNotPurchaseCourses">
+      <div class="alert alert-success">
+        <strong>Note.</strong> You don't have any courses. To start learning purchase course now. 
+      </div>
+    </section>
+
+
+    <!-- what to learn next  -->
+
+    <section class="mylaerning-img-cards-cls">
+      <div class="">
+
+        <div class="row">
+          <div class="col-12 mb-2 mt-2">
+            <h4> What to learn next </h4>
+          </div>
+          <div class="col-12">
+            <h5 class="oa-ltblue"> Short and sweet courses for you</h5>
+          </div>
+
+        </div>
+
+        <ng-container   *ngIf="ifnoCourseDataAvailable">
+
+          <div class="alert alert-success">
+            <strong>No courses available. </strong>
+          </div>
+  
+        </ng-container>
+
+
+        <ng-container  *ngIf = "!ifnoCourseDataAvailable">
+
+
+     
+        <div class="short-courses-cls mt-3">
+          <!-- swiper image slider  -->
+
+          <swiper [config]="shortAddSweetCoursesConfig">
+
+            <div class="swiper-wrapper ">
+              <div class="swiper-slide lets-short-and-sweet-main-cls" *ngFor="let c of firstCourse; let i = index"
+                (click)="gotocart(c['id'], c['courseTitle'])">
+
+                <div class=" card text-center get-started-div-card-div-cls   ">
+
+
+                  <span *ngIf="(c.coverImageUrl !== undefined && c.coverImageUrl !== null)">
+                    <img class="img-fluid img-thumbnail coverimage-cls" src="{{c.coverImageUrl}}" alt="">
+                </span>
+
+                       
+                <span  *ngIf="(c.coverImageUrl == null)" >
+                    <div class="video_player1">
+                        <!-- <video (playing)="onPlayingVideo($event)" width="100%" height="100%" controls>
+                            <source src="{{c.fileUrl}}">
+                        </video> -->
+                        <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt=""> -->
+                        <div class="crse_txt_card">
+                            <p>
+                                <span class="label-first-char"> {{c.courseTitle | slice:0:2 }} </span>
+                                <!-- <span class="label-first-char">J</span>
+                                <span class="label-second-char">a</span> -->
+                            </p>
+                        </div>
+                    </div>
+                </span>
+             
+ 
+
+
+                  <!-- <span class="label-first-char">
+                    {{c.courseTitle | slice: 0:2}}    
+                  </span> -->
+
+                  <!-- <img   src = "{{c.Cimg}}"  -->
+                  <!-- class="img-fluid" alt="">  -->
+                  <!-- <i class="fa fa-ellipsis-v dot-btn-cls" aria-hidden="true"></i> -->
+                  <div class="get-started-div-card-text-cls card-body">
+                    <h5 class="card-title">{{c.courseTitle}}</h5>
+                    <p class="card-text">
+                      <!-- Coder , The IDA for Everyone, instructor Account -->
+                      {{c.topic}}
+                    </p>
+                    <!-- <div class="progress  course-card-progress-cls">
+                            <div class="progress-bar progress-bar-complete-color-cls" style="width:70%"></div>
+                          </div> -->
+                    <div class="priceRating-div-sec-cls mt-3">
+                      <div class="priceRating-ratNum-sec-cls">
+                        <p>
+                          <!-- 4.0 -->
+                          {{c.language}}
+                        </p>
+                      </div>
+
+                      <div class="priceRating-rating-sec-cls">
+
+                        <p class="progress-bar-percent-text-cls">
+
+                          <star-rating value="{{c.rat}}" totalstars={{totalstar}} checkedcolor="#1C56AE"
+                            uncheckedcolor="#989898" size="24px" readonly="true" (rate)="onRate($event)"></star-rating>
+                        </p>
+                        <div class="priceRating-population-sec-cls">
+                          <p>(0)</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wishlist-price-sec-cls">
+                      <p>&#36; {{c.price}}</p>
+                      <!-- <p>&#36; <s>700</s> </p> -->
+                    </div>
+                  </div>
+                </div>
+                <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/event1.jpg" /> -->
+           
+                <!-- add to cart popup  -->
+
+                <!-- <div class="popovercls">
+                
+                  <span class="TITTLE">{{c.topic}}</span> <br>
+                  <span class="tittles2">Updated October 2020</span> <br>
+                  <span class="tittles3">4 hours . Intermediate Level . Subtitles</span>
+                  <div class="contentss ">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"
+                            class="bi bi-check2" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    </span>
+                    <p>This program is designed to equip the participants with the knowledge of HR Analytics
+                    </p>
+                </div>
+                    <div class="contentss ">
+                      <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"
+                              class="bi bi-check2" fill="currentColor">
+                              <path fill-rule="evenodd"
+                                  d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                          </svg>
+                      </span>
+                      <p>This program is designed to equip the participants with the knowledge of HR Analytics
+                      </p>
+                  </div>
+                  <div class="popfooter">
+                    <button class="btn addtocart">Add to cart</button>
+                  </div>
+                </div> -->
+
+                <!-- end Add to cart popup  -->
+              </div>   
+            </div>
+            <!-- Add Pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </swiper>
+              
+          <!-- swiper image slider  end -->
+        </div>
+
+      </ng-container>
+
+
+
+      </div>
+    </section>
+
+    <!-- end what to learn next  -->
+
+
+
+    <!-- students are viewing  -->
+
+
+    <section class="mylaerning-img-cards-cls">
+      <div class="">
+
+        <div class="row">
+          <div class="col-12">
+            <h5> Students are Viewing </h5>
+          </div>
+          <!-- <div class="col-12 mb-2 ">
+                <h5 class="oa-ltblue"> Short and sweet courses for you. </h5>
+            </div> -->
+
+        </div>
+
+
+        <ng-container   *ngIf="studentsAreviewingboolen">
+
+          <div class="alert alert-success">
+            <strong>No courses available. </strong>
+          </div>
+  
+        </ng-container>
+
+
+        <ng-container  *ngIf="!studentsAreviewingboolen">
+
+          <div class="short-courses-cls mb-3 mt-3">
+
+            <!-- swiper image slider  -->
+  
+            <swiper [config]="shortAddSweetCoursesConfig">
+  
+              <div class="swiper-wrapper h-100">
+  
+                <div class="swiper-slide lets-short-and-sweet-main-cls" *ngFor="let c of firstCourse; let i = index"
+                (click)="gotocart(c['id'], c['courseTitle'])">
+  
+                  <div class=" card text-center get-started-div-card-div-cls   ">
+  
+  
+  
+                    <span *ngIf="(c.coverImageUrl !== undefined && c.coverImageUrl !== null)">
+                      <img class="img-fluid img-thumbnail coverimage-cls" src="{{c.coverImageUrl}}" alt="">
+                  </span>
+  
+                         
+                  <span  *ngIf="(c.coverImageUrl == null)" >
+                      <div class="video_player1">
+                          <!-- <video (playing)="onPlayingVideo($event)" width="100%" height="100%" controls>
+                              <source src="{{c.fileUrl}}">
+                          </video> -->
+                          <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt=""> -->
+                          <div class="crse_txt_card">
+                              <p>
+                                  <span class="label-first-char"> {{c.courseTitle | slice:0:2 }} </span>
+                                  <!-- <span class="label-first-char">J</span>
+                                  <span class="label-second-char">a</span> -->
+                              </p>
+                          </div>
+                      </div>
+                  </span>
+               
+  
+  
+  
+  
+                    <!-- <span class="label-first-char">{{c.courseTitle | slice: 0:2}} </span> -->
+                    <!-- <i class="fa fa-ellipsis-v dot-btn-cls" aria-hidden="true"></i> -->
+  
+                    <!-- <i class="fa fa-ellipsis-v dot-btn-cls"  (click)="showDotsMethod(i , c)"  aria-hidden="true"></i>
+      
+                      <div class="share-fav-cls"  *ngIf="c.showsharediv">
+                          <p>
+                            <i class="fa fa-share  " aria-hidden="true"></i>
+                             <span>share </span>       
+                         </p>
+                         <p>
+                          <i class="fa fa-heart-o" aria-hidden="true"></i>
+                           <span> favourite </span>  
+                         </p>
+                         <p>
+                          <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            <span> Archived </span>  
+                         </p>
+                      </div> -->
+  
+  
+                    <div class="get-started-div-card-text-cls card-body">
+                      <h5 class="card-title">{{c.courseTitle}}</h5>
+  
+  
+                      <p class="card-text">
+                        <!-- Coder , The IDA for Everyone, instructor Account -->
+                        {{c.topic}}
+                      </p>
+                      <!-- <div class="progress  course-card-progress-cls">
+                          <div class="progress-bar progress-bar-complete-color-cls" style="width:70%"></div>
+                        </div> -->
+                      <div class="priceRating-div-sec-cls mt-3">
+                        <div class="priceRating-ratNum-sec-cls">
+                          <p>
+                            <!-- 4.0 -->
+                            {{c.language}}
+                          </p>
+                        </div>
+  
+                        <ng-container *ngFor="let r of  c.rating">
+  
+  
+                          <!-- ratingType -->
+                        </ng-container>
+  
+                        <div class="priceRating-rating-sec-cls">
+                          <p class="progress-bar-percent-text-cls">
+  
+                            <star-rating value="{{c.rat}}" totalstars={{totalstar}} checkedcolor="#1C56AE"
+                              uncheckedcolor="#989898" size="24px" readonly="true" (rate)="onRate($event)"></star-rating>
+  
+  
+                            <!-- <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                              <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                              <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                              <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                              <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                              <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i> -->
+                          </p>
+                          <div class="priceRating-population-sec-cls">
+                            <p>(0)</p>
+                          </div>
+                        </div>
+  
+                        
+                      </div>
+  
+                      <div class="wishlist-price-sec-cls">
+                        <p>&#36; {{c.price}}</p>
+                        <!-- <p>&#36; <s>700</s> </p> -->
+                      </div>  
+                    </div>
+                  </div>
+                  <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/event1.jpg" /> -->
+  
+                </div>
+  
+              </div>
+  
+              <!-- Add Pagination -->
+              <!-- <div class="swiper-pagination"></div> -->
+  
+              <!-- Add Arrows -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+  
+            </swiper>
+  
+            <!-- swiper image slider  end -->
+          </div>
+  
+
+        </ng-container>
+
+
+    
+      </div>
+    </section>
+
+
+    <!-- end  students are viewing  -->
+
+
+
+    <!-- recomand for you  -->
+
+
+    <section class="mylaerning-img-cards-cls">
+      <div class="">
+
+        <div class="row">
+          <div class="col-12">
+            <h5> Recommended for you </h5>
+          </div>
+        </div>
+
+
+        <ng-container *ngIf="recommendedforyousectionboolen">
+
+          <div class="alert alert-success">
+            <strong>No courses available. </strong>
+          </div>
+  
+        </ng-container>
+
+        <ng-container *ngIf="!recommendedforyousectionboolen">
+
+
+      
+        <div class="short-courses-cls mb-3 mt-2">
+
+        
+          <swiper [config]="shortAddSweetCoursesConfig">
+
+     
+            <div class="swiper-wrapper h-100">
+
+              <div class="swiper-slide lets-short-and-sweet-main-cls" *ngFor="let c of firstCourse; let i = index"
+              (click)="gotocart(c['id'], c['courseTitle'])">
+
+                <div class=" card text-center get-started-div-card-div-cls   ">
+
+
+
+                  <span *ngIf="(c.coverImageUrl !== undefined && c.coverImageUrl !== null)">
+                    <img class="img-fluid img-thumbnail coverimage-cls" src="{{c.coverImageUrl}}" alt="">
+                </span>
+
+                       
+                <span  *ngIf="(c.coverImageUrl == null)" >
+                    <div class="video_player1">
+                        <!-- <video (playing)="onPlayingVideo($event)" width="100%" height="100%" controls>
+                            <source src="{{c.fileUrl}}">
+                        </video> -->
+                        <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt=""> -->
+                        <div class="crse_txt_card">
+                            <p>
+                                <span class="label-first-char"> {{c.courseTitle | slice:0:2 }} </span>
+                                <!-- <span class="label-first-char">J</span>
+                                <span class="label-second-char">a</span> -->
+                            </p>
+                        </div>
+                    </div>
+                </span>
+
+                  <div class="get-started-div-card-text-cls card-body">
+                    <h5 class="card-title">{{c.courseTitle}}</h5>
+
+
+                    <p class="card-text">
+                      <!-- Coder , The IDA for Everyone, instructor Account -->
+                      {{c.topic}}
+                    </p>
+                    <!-- <div class="progress  course-card-progress-cls">
+                        <div class="progress-bar progress-bar-complete-color-cls" style="width:70%"></div>
+                      </div> -->
+                    <div class="priceRating-div-sec-cls mt-3">
+                      <div class="priceRating-ratNum-sec-cls">
+                        <p>
+                          <!-- 4.0 -->
+                          {{c.language}}
+                        </p>
+                      </div>
+
+                      <ng-container *ngFor="let r of  c.rating">
+
+
+                        <!-- ratingType -->
+                      </ng-container>
+
+                      <div class="priceRating-rating-sec-cls">
+                        <p class="progress-bar-percent-text-cls">
+
+                          <star-rating value="{{c.rat}}" totalstars={{totalstar}} checkedcolor="#1C56AE"
+                            uncheckedcolor="#989898" size="24px" readonly="true" (rate)="onRate($event)"></star-rating>
+
+
+                          <!-- <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                            <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                            <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i> -->
+                        </p>
+                        <div class="priceRating-population-sec-cls">
+                          <p>(0)</p>
+                        </div>
+                      </div>
+
+                      
+                    </div>
+
+                    <div class="wishlist-price-sec-cls">
+                      <p>&#36; {{c.price}}</p>
+                      <!-- <p>&#36; <s>700</s> </p> -->
+                    </div>
+
+
+
+
+                  </div>
+
+
+
+                </div>
+
+
+                <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/event1.jpg" /> -->
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Add Pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+          </swiper>
+
+          <!-- swiper image slider  end -->
+        </div>
+
+
+      </ng-container>
+
+
+      </div>
+    </section>
+
+    <!-- end recomand for you  -->
+
+
+    <!-- trusted by companies of all sizes  -->
+
+
+    <section class="trustedby-companies-all-sizes-cls">
+
+      <!-- <div class="">
+        <div class="row">
+          <div class="col-12">
+            <h4> Trusted by Companies of all sizes . </h4>
+          </div>
+          <div class="col-12 mb-2 ">
+                <h5 class="oa-ltblue"> Short and sweet courses for you. </h5>
+            </div>
+
+        </div> -->
+
+
+        <!-- <div class="row trusted-companies">
+          <div class="col-sm-3 col-md-3 col-xs-12 col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/ONPASSIVE-logo-profile.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-3 col-xs-12 col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/ONPASSIVE-logo-profile.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3 col-md-3 col-xs-12 col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/ONPASSIVE-logo-profile.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3 col-md-3 col-xs-12 col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/ONPASSIVE-logo-profile.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+        </div> -->
+
+      <!-- </div> -->
+    </section>
+
+
+    <!-- end main Search page  -->
+
+
+    <!-- end students Also Learn Section  -->
+
+
+  </div>
+</section>
+
+<!-- trusted by companies of all sizes  -->
+
+<app-student-footer></app-student-footer>

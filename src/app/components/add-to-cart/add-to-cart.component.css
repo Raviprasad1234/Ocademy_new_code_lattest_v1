@@ -1,0 +1,659 @@
+/* ////////////////////// */
+.heading-tag {
+    position   : relative;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+pdf-viewer {
+    display: block;
+    height : 60vh;
+}
+
+.pdfpreviousbtn {
+    background-color: #2D93CF;
+    color           : #fff;
+    padding-left    : 40px;
+    padding-right   : 40px;
+    margin          : 5px;
+}
+
+.pdfnextbtn {
+    background-color: #2D93CF;
+    color           : #fff;
+    padding-left    : 40px;
+    padding-right   : 40px;
+    margin          : 5px;
+
+}
+
+.btn-center-cls {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.preview-this-video-cls{
+    text-align: center;
+    display: block;
+    position: relative;
+    bottom: 25px;
+    z-index: 99;
+    color: #fff;
+    font-size: 14px;
+}
+
+.preivew_modal_lesson_cls{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Poppins-Regular';
+}
+
+.preview_lesson_header_cls{
+    display: block;
+}
+
+.preview_lesson_header_cls .preview_btn_cls{
+    top: 25px;
+    position: absolute;
+    right: 25px;
+    padding: 0px;
+    font-size: 24px;
+}
+
+.p_preivew_modal_lesson_cls{
+    margin: 0px;
+    font-size: 14px;
+    font-family: 'Poppins-Regular';
+    font-weight: 900;
+    color: #8e8c8c;
+}
+
+
+.filter-btn-cls:focus {
+    outline: 0;
+}
+
+
+.filter-btn-cls:active {
+    outline: none;
+}
+
+.filter-btn-cls:hover {
+    outline: none;
+}
+
+
+.Cat-right-cls {
+    padding-right: 8px;
+    color        : #fff;
+}
+
+.heading-tag a {
+    color: #4a91fd !important;
+}
+
+.maindivvv {
+    background-color   : #1C56AE !important;
+    /* max-height      : 400px; */
+}
+
+
+.row-content-div {
+    margin-top: 30px;
+    position  : relative;
+}
+
+.sharebutton {
+    background-color: #1C56AE !important;
+    color           : white;
+    padding         : 10px;
+    width           : 150px;
+    position        : relative;
+    /* border-radius: 5px 5px; */
+}
+
+.text-primary_CLS{
+    color: #000000;
+    font-weight: 800;
+    text-transform: capitalize;
+    margin-left: 5px;
+}
+
+.left-content {
+    padding-bottom: 30px;
+}
+
+.right-side-send-div {
+    margin-top   : 30px;
+    padding      : 5px;
+    color        : #000000;
+    margin-bottom: 10px;
+}
+
+.right-side-send-div .contentssss {
+    /* padding:30px; */
+    padding-left: 40px;
+}
+
+.right-side-send-div h5 {
+    margin-top: 20px;
+}
+
+.right-side-dive-svgss {
+    height: 20px;
+    width : 25px;
+}
+
+.right-side-dive-svgsss {
+    height: 27px;
+    width : 28px;
+}
+
+.second-main-div {
+    position        : relative;
+    /* top          : 20px; */
+    border-radius   : 50px;
+    margin-top      : 20px;
+}
+
+.second-main-div .left-div {
+    background-color: #e6e4e4 !important;
+    border-radius   : 10px;
+
+}
+
+.left-div .heading {
+    color      : #1C56AE !important;
+    font-weight: bold;
+    position   : relative;
+    /* top     : 10px; */
+}
+
+.course-details {
+    padding: 30px 0;
+}
+
+.row-content-div .heading {
+    font-weight   : bold;
+    text-transform: capitalize;
+}
+
+.row-content-div .second-heading {
+    margin-top: 25px;
+}
+
+.rating-tagg {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.after-rating-tagg {
+    position: relative;
+}
+
+.language-div {
+    position      : relative;
+    text-transform: capitalize;
+}
+
+.third-main-div .left-div {
+    border-radius: 10px;
+}
+
+.contentss {
+    display        : flex;
+    justify-content: space-between;
+}
+
+.contentss p {
+    margin-left: 10px;
+    text-align : justify;
+}
+
+.unorder-list {
+    text-align: justify;
+}
+
+.unorder-list li {
+    margin-top : 10px;
+    margin-left: 6px;
+}
+
+.fourth-main-div .paragraph {
+    position   : relative;
+    /* top     : 10px; */
+}
+
+.left-div {
+    padding-bottom: 30px;
+}
+
+.video-content {
+    padding: 15px;
+}
+
+/* /////////////////////// */
+.left-left-div {
+    background-color: white;
+    height          : auto;
+    box-shadow      : 0px 0px 6px #888888;
+    position        : absolute;
+    right           : 0;
+    z-index         : 9;
+    width           : 450px;
+}
+
+
+.right-sideve-first-div {
+    margin-top: 10px;
+}
+
+.right-sideve-first-div .span111 {
+    font-size  : 22px;
+    position   : relative;
+    top        : 3px;
+    font-weight: bold;
+    color      : #1C56AE !important;
+}
+
+.right-sideve-first-div strike {
+    color: silver;
+}
+
+.right-sideve-first-div .span22 {
+    color      : silver;
+    font-weight: bold;
+    font-size  : 15px;
+}
+
+.payment-botton {
+    background   : #1544A0 !important;
+    border-radius: 6px;
+    box-shadow   : 0 0 20px #eee;
+    cursor       : pointer;
+    font-size    : 17px;
+    font-weight  : 400;
+    padding      : 10px;
+    color        : white;
+    margin-bottom: 10px;
+}
+
+.payment-botton:hover {
+    background   : #3860AE !important;
+    color        : #FFF;
+  }
+
+  
+
+.payment-botton2 {
+    /* background: linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important; */
+    border-radius: 6px;
+    /* box-shadow: 0 0 20px #eee; */
+    cursor       : pointer;
+    font-size    : 17px;
+    font-weight  : bold;
+    padding      : 10px;
+    color        : #1544A0;
+    margin-bottom: 10px;
+    border       : 1px solid #FFF0C5;
+    /* outline: #FFF0C5; */
+
+}
+
+.payment-botton2:hover {
+    border   : 1px solid #FEC727 !important;
+    color        : #3860AE;
+}
+
+
+.after-buynow-button {
+    text-align: center;
+    color     : silver;
+    margin-top: 10px;
+}
+
+.input-divv {
+    border       : 1px solid #1544A0 !important;
+    border-radius: 5px;
+}
+
+.input-divv .textsss-field {
+    height: 40px;
+}
+
+.input-divv .input-group-text {
+    color     : white;
+    border    : none;
+    background:  #1544A0 !important;
+}
+
+
+.CouponAppliedDiv {
+    background-color: seagreen;
+    display         : flex;
+    justify-content : space-between;
+    margin-top      : 5px;
+    padding         : 5px;
+}
+
+.CouponAppliedDiv span {
+    color: #FFF;
+}
+
+.CouponAppliedDiv .couponRemoveIcon {
+    font-size: 23px;
+    color    : brown;
+    cursor   : pointer;
+}
+
+.preview-video span {
+    width          : 100%;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    min-height     : 250px;
+    background     : #000;
+    color          : #fff;
+    font-size      : 100px;
+    cursor         : pointer;
+    position       : relative;
+}
+
+.preview-video span::after {
+    content       : "\f04b";
+    position      : absolute;
+    font-family   : 'FontAwesome';
+    display       : inline-block;
+    padding-right : 3px;
+    font-size     : 30px;
+    vertical-align: middle;
+    font-weight   : 900;
+    color         : rgba(255, 255, 255, 0.5);
+    border        : 1px solid rgba(255, 255, 255, 0.5);
+    border-radius : 50%;
+    width         : 50px;
+    height        : 50px;
+    text-align    : center;
+    line-height   : 50px;
+    z-index       : 9;
+    background    : rgba(0, 0, 0, 0.5);
+    padding-left  : 7px;
+}
+
+.rightdrop {
+    margin-bottom: 25px;
+    margin-top   : 25px;
+}
+
+.rightdrop .card-body p label {
+    margin         : 0 0 0 15px;
+    text-decoration: underline;
+}
+
+.rightdrop .card-body p {
+    display    : flex;
+    align-items: center;
+    margin     : 5px;
+    color      : #0f7c90;
+}
+
+.rightdrop .accordion-heading {
+    font-weight   : 700;
+    line-height   : 1.2;
+    letter-spacing: -.02rem;
+    font-size     : 20px;
+}
+
+.rightdrop .accordion-heading a {
+    color          : #3c3b37 !important;
+    padding        : 0.6rem 1.4rem;
+    box-sizing     : inherit;
+    display        : block;
+    border-bottom  : 1px solid rgba(0, 0, 0, 0.125);
+    text-decoration: none;
+}
+
+.accordion-toggle:after,
+.accordion-toggle[aria-expanded="false"]:after {
+    font-family: 'FontAwesome';
+    content    : "\f078";
+    float      : right;
+}
+
+.accordion-toggle[aria-expanded="true"]:after {
+    content    : "\f077";
+    font-family: 'FontAwesome';
+}
+
+.viewmore {
+    height            : 100px;
+    overflow          : hidden;
+    -webkit-mask-image: linear-gradient(#fff, #fff, rgba(255, 255, 255, 0));
+}
+
+.showlearn {
+    height            : 120px;
+    overflow          : hidden;
+    -webkit-mask-image: linear-gradient(#fff, #fff, rgba(255, 255, 255, 0));
+}
+
+.show,
+.showmore {
+    overflow          : visible;
+    height            : auto;
+    -webkit-mask-image: none;
+}
+
+.custommargin {
+    margin-bottom: 25px;
+}
+
+.moretxt {
+    color      : #1C56AE !important;
+    font-weight: bold;
+    position   : relative;
+}
+
+
+.instructor-div .instructors-heading {
+    margin-top : 20px;
+    color      : #1C56AE !important;
+    font-weight: bold;
+    position   : relative;
+}
+
+.instructor-div .second-heanding {
+    color      : #000000;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.instructor-div .third-heanding {
+    color      : #000000;
+    font-weight: 10px;
+
+}
+
+.instructor-div .row-icon-content {
+    padding: 10px;
+
+}
+
+.fa-users-icon {
+    font-size: 60px;
+    color    : #0e51b6 !important;
+}
+
+.star-tag-color {
+    color: #000000;
+
+}
+
+
+.heading-div {
+    margin-top     : 20px;
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+}
+
+.student-feedback {
+    margin-top     : 20px;
+    display        : flex;
+    justify-content: space-between;
+}
+
+.student-feedback h1 {
+    font-size  : 50px;
+    font-weight: bold;
+    color      : #0e51b6 !important;
+}
+
+.student-feedback .fa-star {
+    color: orange;
+}
+
+.student-feedback p {
+    color      : orange;
+    font-weight: 10px;
+}
+
+/* .designed-certificate-tag{
+    color: #989898;
+    font-size: 20px;
+    position: relative;
+    text-align: left;
+}
+.designed-certificate-tag span{
+    position: relative;
+    z-index: 2;
+    background: #FFF;
+    padding: 0 10px 0px 0px;
+}
+.designed-certificate-tag {
+    color: #989898;
+    font-size: 20px;
+
+    text-align: left;
+}
+
+/* .review-divv{
+    display: block;
+    justify-content: space-between;
+} */
+
+.emptyyy:empty {
+    width     : 300px;
+    height    : 10px;
+    background: silver;
+}
+
+.input-group {
+    border       : 1px solid #1C56AE;
+    border-radius: 5px;
+}
+
+.input-group-text {
+    border          : 1px solid #1C56AE;
+    background-color: #1C56AE !important;
+    color           : white;
+}
+
+.select-tag {
+    border: 1px solid #1C56AE;
+}
+
+.review-feedback-div {
+    margin-top    : 20px;
+    border-bottom : 1px solid silver;
+    padding-bottom: 20px;
+}
+
+.row-icon-content1 {
+    padding: 10px;
+
+}
+
+.fa-users-icon1 {
+    font-size: 50px;
+    color    : #0e51b6 !important;
+}
+
+.right-div1 {
+    line-height: 5px;
+}
+
+.chart-heading {
+    color      : black;
+    font-weight: bold;
+    font-size  : 20px;
+}
+
+.thumb-div {
+    margin-top: 20px;
+}
+
+.thumb-div span {
+    font-size    : 20px;
+    border       : 1px solid silver;
+    border-radius: 50%;
+    width        : 40px;
+    height       : 40px;
+    display      : inline-block;
+    text-align   : center;
+    line-height  : 40px;
+}
+
+.dislike {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.see-more {
+    margin-top: 20px;
+}
+
+.ratinginfo > star-rating{
+    display: block;
+    margin: 0 10px;
+}
+.avgrating{
+    display: flex;
+    align-items: center;
+}
+
+.avgrating > span{
+    margin: 0 5px;
+}
+
+
+
+@media screen and (max-width:767px){
+    .left-left-div{
+        position: relative;
+        right:-15px;
+        margin-bottom: 15px;
+    }
+    .student-feedback > div:nth-child(2){
+        width: 100px;
+    }
+    .student-feedback > div:nth-child(2) p{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:992px) {
+    .second-main-div {
+        position: relative;
+
+    }
+}
+
+
+/* /////////////////////// */

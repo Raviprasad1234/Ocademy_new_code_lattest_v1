@@ -1,0 +1,18 @@
+.container-div{
+    text-align: center;
+    
+}
+
+.heading{
+    margin-top:20px;
+    color: rgb(102, 101, 101);
+    font-weight: bold;
+}
+.heading-two{
+    color: rgb(190, 186, 186);
+}
+
+.coming-soon-cls{
+    font-weight: 800;
+    min-height: 300px;
+}

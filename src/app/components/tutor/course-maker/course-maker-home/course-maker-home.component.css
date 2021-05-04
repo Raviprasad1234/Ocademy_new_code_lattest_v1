@@ -1,0 +1,174 @@
+/* course header css */
+
+.ch_logo {
+  height : 60px;
+  padding: 8px 3px;
+  cursor : pointer;
+}
+
+.course_header {
+  height         : 60px;
+  width          : 100%;
+  position       : fixed;
+  width          : 100%;
+  top            : 0;
+  z-index        : 999;
+  background     : #fff;
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+}
+
+.tutor-course-body {
+  margin-top: 60px;
+  height    : auto;
+}
+
+.ryt .mat-raised-button {
+  background : linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important;
+  color      : #fff;
+  line-height: 40px;
+}
+
+.ryt button {
+  line-height: 34px;
+}
+
+.ryt {
+  height     : 60px;
+  display    : flex;
+  align-items: center;
+}
+
+.ryt .user {
+  background-color: #1e5cb1;
+}
+
+
+
+/* test dropdown  */
+
+.dropbtn {
+  /* background-color: #4CAF50; */
+  color     : white;
+  /* padding: 16px; */
+  font-size : 16px;
+  border    : none;
+}
+
+.user {
+  outline: none;
+  border : none;
+}
+
+
+.user-dropdown-cls {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.user-dropdown-cls-content {
+  /* display: block; */
+  position        : absolute;
+  background-color: #fff;
+  z-index         : 1000;
+  right           : 0px;
+  top             : 45px;
+  display         : flex;
+  flex-wrap       : wrap;
+  flex-direction  : column;
+  min-width       : 180px;
+  min-height      : auto;
+  text-align      : start;
+  padding         : 10px;
+  color           : #989898;
+  box-shadow      : -1px 3px 10px #ccc;
+  /* font-size    : 12px; */
+}
+
+.showuserdrop{
+  padding: 8px;
+}
+
+.notification, .showuserdrop{
+  margin-right: 10px;
+}
+
+.user-dropdown-cls-content{
+  display: none;
+}
+.showuserdrop:hover .user-dropdown-cls-content{
+  display: flex;
+}
+
+.user-dropdown-cls-content {
+  z-index: 9999;
+}
+
+.user-dropdown-cls-content a {
+  /* color: black;  */
+  /* padding: 12px 16px; */
+  /* text-decoration: none; */
+  /* display: block; */
+  color    : #989898;
+  font-size: 12px;
+}
+
+.dropdown-sub {
+  line-height : 2;
+  list-style  : none;
+  /* font-size: 12px; */
+}
+
+.welcome {
+  display        : inline-flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+}
+
+.dropdown-user-options-cls {
+  display       : flex;
+  padding-bottom: 10px;
+}
+
+.dropdown-user-options-cls p {
+  /* flex-direction: row; */
+  margin     : 0;
+  line-height: 16px;
+  font-size  : 14px;
+  font-weight: normal;
+}
+
+.dropdown-option a {
+  display: block;
+  padding: 5px 10px;
+}
+
+.dropdown-user-options-cls p:last-child {
+  font-size: 12px;
+}
+
+.dropdown-sub {
+  display       : flex;
+  flex-direction: column;
+  padding       : 0px;
+  margin        : 0;
+}
+
+.user-dropdown-cls-content a:hover {
+  background-color: #fff;
+  font-weight     : 900;
+  text-decoration : none;
+  color           : #989898;
+
+}
+
+/* end test drop down  */
+
+@media screen and (max-width:767px){
+.ch_logo{
+  padding:10px;
+}
+}

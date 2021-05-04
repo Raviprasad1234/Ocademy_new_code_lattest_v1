@@ -1,0 +1,222 @@
+h3.brand-head {
+    color: #989898;
+    font-size: 26px;
+}
+
+h4.course-name-p {
+    color: #989898;
+    font-size: 18px;
+    margin: 20px 0 0 0;
+}
+
+.branding p,
+.short-descr-div p,
+.description-div p,
+.cover-img p {
+    margin: 5px 0;
+    color: #989898;
+    font-size: 12px;
+}
+
+.custome-btn .mat-radio-button {
+    display: block !important;
+}
+
+.custome-btn .mat-radio-label-content {
+    color: #989898;
+}
+
+
+/* The container */
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #989898;
+}
+
+
+/* Hide the browser's default radio button */
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid #707070;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the radio button is checked, add a blue background */
+
+.container input:checked~.checkmark {
+    background: #388dcd;
+    border: none;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:before {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.container input:checked~.checkmark:after,
+.container input:checked~.checkmark:before {
+    display: block;
+}
+
+
+/* Style the indicator (dot/circle) */
+
+.container .checkmark:before {
+    top: 0.15rem;
+    left: 0.15rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #1d56af;
+    z-index: 5;
+}
+
+.moneytype {
+    color: #989898;
+    margin-left: 10px;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.cover-img input {
+    display: inline-block;
+    width: auto;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 0;
+}
+
+.cover-img input:focus {
+    outline: none;
+}
+
+.customdate {
+    display: inline-block;
+    width: auto;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    border-radius: 0;
+}
+
+.customdate:focus {
+    outline: none;
+}
+
+.customdate .input-group-text {
+    background-color: #cbcbcb;
+}
+
+
+/*custom checkbox*/
+
+.customcheckbox:before,
+.customcheckbox:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.customcheckbox input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+}
+
+.customcheckbox label {
+    position: relative;
+    cursor: pointer;
+}
+
+.customcheckbox label:before {
+    content: '';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 3px solid #989898;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.customcheckbox input:checked+label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    width: 6px;
+    height: 14px;
+    border: solid #989898;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.cover-img .input-group-text {
+    background-color: #cbcbcb;
+}

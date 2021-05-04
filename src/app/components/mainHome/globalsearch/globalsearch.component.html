@@ -1,0 +1,360 @@
+<app-global-header [searchvalue]="searchheading"></app-global-header>
+
+
+
+
+<section class="main-search-section-cls">
+    <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/search_banner.jpg" class="img-fluid" alt="">
+    <div class="container">
+
+        <ng-container>
+            <div class=" mt-3 mb-3" *ngIf="All_courses_len > 0">
+                <h4> {{studentCourseResultLength}} results for <span> {{searchheading}} </span> </h4>
+            </div>
+
+            <div class="  mt-3 mb-3" *ngIf="All_courses_len > 0">
+                <h4 class="search-header"> <span> Explore </span> {{searchheading}}</h4>
+            </div>
+
+            <div *ngIf="All_courses_len == 0 " class="invalid-div">
+
+                <div class="" style="padding-top: 20px;">
+
+                    <div class="alert alert-danger" style="text-align: center;
+                padding: 25px;" role="alert">
+                        No Results Found ..!
+                    </div>
+
+                </div>
+
+
+
+                <!-- <h3 class="heading">Sorry, we couldn't find any results for {{searchheading}}</h3>
+
+            <p class="smalheading">Try adjusting your search. Here are some ideas:</p>
+            <ul>
+                <li>Make sure all words are spelled correctly</li>
+                <li>Try different search terms</li>
+                <li>Try more general search terms</li>
+            </ul> -->
+            </div>
+        </ng-container>
+
+
+
+        <!-- *ngIf="showIfSearchResults " -->
+        <div class="" *ngIf="All_courses_len > 0">
+            <p class="lead breadcomb">
+                <span class="course-name-cls"> {{searchheading }} related to </span> <span class="icon-right"></span>
+                <span class="course-cat-cls" (click)="getCategoriesSearchMethod(Categories)"> {{ Categories}}</span>
+                <span class="icon-right" *ngIf="showSubCatNavigationIcon">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+
+                </span>
+                <span class="course-subcat-cls" (click)="getSubCategoriesSearchMethod(subCategories)">
+                    {{subCategories}}</span> <span class="icon-right" *ngIf="showTopicNameNavigationIcon">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+
+                </span>
+                <span class="course-subcat-cls" (click)="getTopicNameSearchMethod(TopicName)">
+                    {{TopicName}}
+                </span>
+            </p>
+        </div>
+
+
+        <!-- main Search page  -->
+        <div class="main-search-page-cls mb-3 mt-2">
+            <!-- *ngIf="showIfSearchResults " -->
+            <div class="row   " *ngIf="All_courses_len > 0">
+                <!-- <div class="row"  > -->
+
+                <!-- <div class="col-sm-4 col-xs-12 mb-2  col-md-3 col-lg-3">
+
+                    <button (click)="filterShowHide()" class="btn btn-danger btn-md 
+                     center-block filter-btn-cls">
+                        <i class="fa fa-bars filter-btn-icon-cls" aria-hidden="true"></i>
+                        Filter
+                    </button>
+                </div> -->
+                <div class=" col-sm-4 mb-2       col-xs-12" >
+                    <div class="filter-dropdown-search-div-cls">
+                        <select class="filter-fropdown-cearch-cls" #mySelect
+                            (change)='onOptionslevelSelected(mySelect.value)' name="slct" id="slct">
+                            <option selected disabled>Most Popular</option>
+                            <option value="alllevels">All Levels</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Expert">Expert</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <ng-container *ngIf="All_courses_len > 0">
+
+            </ng-container>
+
+            <div class="row mt-3 mb-3" [ngClass]="showfilData === true?'showfilerparent':'hidefilerparent'">
+                <div [ngClass]="showfilData === true?'showfiler-cls':'hidefiler-cls'"
+                    class="col-sm-4 col-md-3 col-xs-12 col-lg-3">
+
+                    <div class="sidebar-filter-panel">
+                        <div class="sidebar-filter-heading-cls" (click)="TopicListMethod()">
+                            <h4>
+                                <span class="heading-t-cls">
+                                    Topic
+                                </span>
+                            </h4>
+                            <!-- <span class="arrow-btn" *ngIf="!showbtnArrowtopic">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="arrow-btn" *ngIf="showbtnArrowtopic">
+                                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            </span> -->
+                        </div>
+                        <div class="sidebar-topic-list" [ngStyle]="{'display': showTopicToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of AllTopics">
+                                <input type="checkbox" name="TopicexampleChecktopic"
+                                    (change)="Slected_Courses_by_TopicName_method(x.name, $event.target.checked , x.id)"
+                                    class="form-check-input" id="TopicexampleCheck{{x.id}}">
+                                <label class="form-check-label" for="TopicexampleCheck{{x.id}}">{{x.name}} </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-filter-panel">
+                        <div class="sidebar-filter-heading-cls" (click)="showLevelMethod()">
+                            <h4>Level </h4>
+                            <!-- <span class="arrow-btn" *ngIf="!showbtnArrowLevel">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="arrow-btn" *ngIf="showbtnArrowLevel">
+                                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            </span> -->
+                        </div>
+
+                        <!-- <div class="sidebar-topic-list" [ngStyle]="{'display': showLevelToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of Alllevels">
+                                <input type="checkbox" name="LevelexampleCheck"
+                                    (change)="onChangeLevel(x.name, $event.target.checked)" class="form-check-input"
+                                    id="LevelexampleCheck{{x.ID}}">
+                                <label class="form-check-label" for="LevelexampleCheck{{x.ID}}">{{x.name}}</label>
+                            </div>
+                        </div> -->
+
+
+                        <div class="sidebar-topic-list" [ngStyle]="{'display': showLevelToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of Alllevels">
+                                <input type="checkbox" name="LevelexampleChecktopic"
+                                    (change)="Slected_Courses_by_Level_method(x.name, $event.target.checked)"
+                                    class="form-check-input" id="LevelexampleCheck{{x.ID}}">
+                                <label class="form-check-label" for="LevelexampleCheck{{x.ID}}">{{x.name}}</label>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="sidebar-filter-panel">
+                        <div class="sidebar-filter-heading-cls" (click)="showLangMethod()">
+                            <h4>Languages </h4>
+                            <!-- <span class="arrow-btn" *ngIf="!showbtnArrowLang">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                            <span class="arrow-btn" *ngIf="showbtnArrowLang">
+                                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            </span> -->
+                        </div>
+
+
+                        <!-- <div class="sidebar-topic-list" [ngStyle]="{'display': showlangToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of AllLanguages">
+                                <input type="checkbox" value="{{x.name}}" name="LanguagesexampleCheckLang"
+                                    (change)="onChangeLanguages(x.name, $event.target.checked)" class="form-check-input"
+                                    id="LanguagesexampleCheck{{x.IDs}}">
+                                <label class="form-check-label" for="LanguagesexampleCheck{{x.IDs}}">{{x.name}}</label>
+                            </div>
+                        </div> -->
+
+                        <div class="sidebar-topic-list" [ngStyle]="{'display': showlangToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of AllLanguages">
+                                <input type="checkbox" value="{{x.name}}" name="LanguagesexampleCheckLang"
+                                    (change)="Slected_Courses_by_Language_method(x.name, $event.target.checked)"
+                                    class="form-check-input" id="LanguagesexampleCheck{{x.IDs}}">
+                                <label class="form-check-label" for="LanguagesexampleCheck{{x.IDs}}">{{x.name}}</label>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 rightfullwidth">
+                    <!-- <div class="row  mb-5" class="showemptyCourses-cls" *ngIf="NofoundData"> -->
+                    <div class="row  mb-5" class="showemptyCourses-cls" *ngIf="invalidSearch">
+
+                        <div class="alert alert-danger" role="alert">
+                            No results found.
+                        </div>
+                    </div>
+                    <ng-container *ngIf="!showemptyCourses">
+    
+                            <div class="row m-0 "  >
+                                <!-- offset-md-1 -->
+                                <!-- style="box-shadow: 0px 0px 0px 1px rgb(180, 179, 179);" -->
+                            <div class="results-courses-data-cls col-md-4 p-0 mt-2"
+                            
+                             (click)="innerviewpage(x.id, x.courseTitle)"
+                             *ngFor="let x of selectedLevelData | paginate:{itemsPerPage:9,currentPage:cp} ; let i=index;">
+                                    <!-- <div class="videoTagdiv">
+                                         <span *ngIf="(x.coverImageUrl !== undefined && x.coverImageUrl !== null)">
+                                            <img class="img-fluid img-thumbnail coverimage-cls"
+                                                src="{{x.coverImageUrl}}" alt="">
+                                        </span>
+                                        <span *ngIf="(x.coverImageUrl == null)">
+                                            <div class="video_player1">
+                                                <div class="crse_txt_card">
+                                                    <p>
+                                                        <span class="label-first-char"> {{x.courseTitle | slice:0:2 }}
+                                                        </span>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </span>
+
+                                    </div> -->
+                                    <!-- ravi bootstrap 4 modal  -->
+                                    <!-- <div class="modal fade" id="myModal{{i}}" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 style="font-size: 18px; margin: 0; color: #000000;text-transform: capitalize;"
+                                                        class="card-title">{{x.courseTitle}}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <video allowfullscreen autoplay="true" controlsList="nodownload"
+                                                            width="100%" height="100%" controls>
+                                                            <source src="{{x.fileUrl}}">
+                                                        </video>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- ravi bootstrap 4 modal end  -->
+                                    <!-- <div class="right-content-div">
+                                        <div class="left-contentdiv">
+                                            <h5 class="search-course-main-tilte-cls">
+                                                {{x.courseTitle}}
+                                            </h5>
+                                            <p>
+                                                {{x.topic}}
+                                            </p>
+                                            <p>
+                                                {{x.language}}
+                                            </p>
+                                            <p> <span>
+                                                    {{x.level}}
+                                                </span> </p>
+
+                                            <p></p>
+                                        </div>
+                                        <div class="priceright">
+                                            <div class="price-cls pull-right">
+                                                <p class="discount-price-cls"> &#36;
+                                                    {{x.price}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                        <div style="box-shadow: 0 0 3px rgb(150, 149, 149); margin: 5px;width: 100%;">
+                                            <ng-container>
+
+                                                <div class="card " style="width: 100%;border: none;" >
+                                                    <div class="videoTagdiv " >
+                                                                    <span *ngIf="(x.coverImageUrl !== undefined && x.coverImageUrl !== null)" >
+                                                                        <img class=" coverimage-cls  "
+                                                                            src="{{x.coverImageUrl}}" 
+                                                                            style="background-color: unset;border-bottom: 1px solid  rgb(211, 208, 208);" >
+                                                                    </span>
+    
+                                                                    <span *ngIf="(x.coverImageUrl == null)" >
+                                                                                    <!-- style="min-height: 120px;max-width: 180px;" -->
+                                                                        <span class="label-first-char " style="min-height: 120px;max-width: 180px;"
+                                                                        > {{x.courseTitle | slice:0:2 }}
+                                                                        </span>
+                                                                    </span>
+                                                    </div>
+    
+                                                    <div class="card-body  p-2 m-0">
+                                                        <h5 class="search-course-main-tilte-cls">
+                                                            {{x.courseTitle}} 
+                                                        </h5>
+                                                        <p>
+                                                            {{x.topic}}
+                                                        </p>
+                                                        <p>
+                                                            {{x.language}}
+                                                        </p>
+                                                        <p> <span>
+                                                                {{x.level}}
+                                                            </span> </p>
+            
+                                                        <p></p>
+                                                        <div class="price-cls pull-right">
+                                                            <p class="discount-price-cls"> &#36;
+                                                                {{x.price}}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                  </div>
+    
+                                            </ng-container>
+                                        </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <!-- *ngIf="paginationDiv" -->
+
+                    <ng-container *ngIf="studentCourseResultLength!= 0">
+                        <div class="paginationDiv">
+                            <pagination-controls autoHide="true" responsive="true" (pageChange)="cp=$event"
+                                class=" pagination"></pagination-controls>
+                        </div>
+                    </ng-container>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- end main Search page  -->
+
+
+        <!-- end students Also Learn Section  -->
+
+
+    </div>
+
+
+
+
+</section>
+
+<app-main-footer></app-main-footer>

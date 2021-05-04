@@ -1,0 +1,44 @@
+.header-div {
+    background-color: #1a64cc;
+    min-height      : 120px;
+}
+
+.header-div .heading {
+    color      : #eee;
+    padding-top: 2%;
+    font-weight: bold;
+    position   : relative;
+    /* left    :-17px;     */
+}
+
+.notifycont{
+    margin: 30px 0;
+}
+
+.nott-div {
+    box-shadow : 0 0 7px rgb(168, 167, 167);
+    margin     : 10px;
+    padding    : 10px;
+    align-items: center;
+}
+
+.right-div-heading {
+    font-weight  : bold;
+    margin-top   : 20px;
+    margin       : 0;
+    font-size    : 14px;
+    margin-bottom: 15px;
+}
+
+.pargraphs {
+    font-size: 12px;
+    margin   : 0;
+    color    : #000000;
+}
+.nocontentmessage {
+    min-height: calc(100vh - 618px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}

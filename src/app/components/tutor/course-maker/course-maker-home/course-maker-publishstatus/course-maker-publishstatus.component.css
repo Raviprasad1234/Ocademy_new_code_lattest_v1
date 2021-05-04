@@ -1,0 +1,155 @@
+.mainDiv {
+    overflow: hidden;
+}
+
+.main-header {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    background: #3860AE;
+    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    top: 60px;
+    z-index: 10;
+}
+
+.main-nav-ancors,
+span.main-course-maker {
+    display: flex;
+    font-weight: 500;
+    color: #FFF;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.main-course svg,
+.main-course-maker svg {
+    padding-right: 5px;
+    margin-right: 5px;
+    font-weight: 900;
+    margin-top: 0px;
+    display: inline-block;
+    font-size: 20px;
+}
+
+span.main-course {
+    margin-right: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.course-maker-hd {
+    color: #989898;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.maincontent {
+    margin-top: 60px;
+    margin-left: 0;
+    margin-right: 0;
+    border-top: 2px solid #FFF;
+}
+
+.side {
+    background-color: #3860AE;
+    padding: 20px;
+    margin-left: 0px;
+    position: fixed;
+    height: 100%;
+    width: 180px;
+}
+
+.main {
+    padding: 30px 40px;
+    background-color: white;
+    text-align: center;
+    margin-top: 0px;
+    width: 100%;
+    margin-left: 180px;
+}
+
+@media screen and (max-width:543px) {
+    .navbar {
+        z-index: 100;
+    }
+    .maincontent {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 80px;
+        height: auto;
+    }
+    .side {
+        padding: 20px;
+        margin-left: 0px;
+        position: relative;
+        height: auto;
+        width: 100%;
+    }
+    .main {
+        margin-left: 0px;
+    }
+}
+
+.vide-txt {
+    color: #FFF;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.ps_title {
+    color: #333;
+    text-align: left;
+    font-size: 19px;
+    width: 100%;
+}
+
+.ps_title_p {
+    margin: 0px;
+    color: #666;
+    text-align: left;
+    font-size: 12px;
+    margin-bottom: 1rem;
+}
+
+.pcs_title {
+    color: #666;
+    text-align: left;
+    font-size: 15px;
+    width: 100%;
+}
+
+.div_ll label {
+    margin: 0px 13px 0px 0px;
+    line-height: 22px;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+}
+
+.div_ll label input {
+    border: 0px;
+    height: 20px;
+    float: left;
+    margin-right: 4px;
+}
+
+.pub_save {
+    line-height: 34px;
+}
+
+   
+@media (max-width: 767px){
+    .maincontent{
+        margin-top:50px;
+    }
+    .main{
+        padding:15px;
+    }
+    
+  }

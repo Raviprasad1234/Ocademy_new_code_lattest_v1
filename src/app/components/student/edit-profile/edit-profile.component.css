@@ -1,0 +1,106 @@
+* {
+  color: rgb(155, 153, 153);
+}
+
+.header-div {
+  background-color: #1a64cc;
+  min-height      : 110px;
+}
+
+.header-div .heading {
+  color       : #eee;
+  padding-top : 2%;
+  font-weight : bold;
+  /* font-size:x-large; */
+}
+
+.first-title-tag {
+  color                  : #1C56AE !important;
+  font-weight            : bold;
+  font-size              : 20px;
+  border                 : 1px solid #ccc;
+  padding                : 10px 15px;
+  border-top-left-radius : 8px;
+  border-top-right-radius: 8px;
+  box-shadow             : 0 0 5px #ccc;
+  margin                 : 0;
+}
+
+
+.labell {
+  font-weight: bold;
+  font-size  : large;
+}
+
+::placeholder {
+  color  : silver;
+  opacity: 1;
+}
+
+.biography-input {
+  height: 100px;
+}
+
+.submit-button-div {
+  display        : flex;
+  justify-content: flex-end;
+}
+
+.submit-botton {
+  background   : #1544A0 !important;
+  color        : #FFF;
+  cursor       : pointer;
+  font-size    : 15px;
+  width        : 70px;
+  margin-bottom: 10px;
+}
+
+
+.submit-botton:hover {
+  background   : #3860AE !important;
+  color        : #FFF;
+}
+
+
+.submit-botton-cancel {
+  cursor       : pointer;
+  font-size    : 15px;
+  width        : 70px;
+  margin-bottom: 10px; 
+    outline: #FFF0CF;
+    color: #6f6f6f;
+    border-color: #6f6f6f;
+    margin-left: 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+
+}
+
+.submit-botton-cancel:hover {
+  color: #3860AE;
+  border-color: #3860AE;
+}
+
+
+
+
+
+.editprofileform {
+  background                : #CDE1FF;
+  padding                   : 15px;
+  margin-bottom             : 80px;
+  box-shadow                : 0 0 5px #ccc;
+  border-bottom-left-radius : 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.editprofileform .form-control {
+  border-radius: 10px;
+}
+
+.editprofileform label {
+  font-weight: normal;
+  margin     : 0;
+  font-size  : 14px;
+  color:#666;
+}

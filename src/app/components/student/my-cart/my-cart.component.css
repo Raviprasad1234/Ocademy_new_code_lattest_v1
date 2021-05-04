@@ -1,0 +1,149 @@
+.header-div {
+    background-color: #1a64cc;
+    min-height      : 120px;
+}
+
+.header-div .heading {
+    color      : #eee;
+    padding-top: 15px;
+    font-weight: bold;
+    position   : relative;
+}
+
+.coverimage-cls {
+    min-width: 100px;
+    padding: 0px;
+    max-width: 150px;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.cartmaincontent{
+    margin: 0 0 30px 0;
+}
+
+.first-title-tag {
+    color      : #1a64cc;
+    font-weight: bold;
+    position   : relative;
+    /* left       : -15px; */
+}
+
+.payment-botton {
+    background   : linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important;
+    color        : #FFF;
+    border-radius: 10px;
+    box-shadow   : 0 0 20px #eee;
+    cursor       : pointer;
+    font-size    : 13px;
+    padding      : 10px;
+    font-weight  : bold;
+}
+
+.left-div-description-content {
+    position: relative;
+}
+
+.input-divv {
+    border       : 1px solid #1e5cb1 !important;
+    border-radius: 5px;
+}
+
+.input-divv button {
+    padding-right: 20px;
+    text-align   : center;
+    background   : linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important;
+    border       : none;
+
+    color: white;
+}
+
+.leftt-roow-div {
+    box-shadow: 0 0 10px rgb(168, 167, 167);
+    align-items: center;
+    padding: 5px;
+}
+
+.alignright{
+    text-align: right;
+    color: #1e5cb1;
+}
+
+.left-div-description-content p {
+    margin: 0;
+    text-transform: capitalize;
+    padding-bottom: 2px;
+}
+
+.CouponAppliedDiv {
+    background-color: seagreen;
+    display         : flex;
+    justify-content : space-between;
+    margin-top      : 5px;
+    padding         : 5px;
+}
+
+.CouponAppliedDiv span {
+    color: #FFF;
+}
+
+.CouponAppliedDiv .couponRemoveIcon {
+    font-size: 23px;
+    color    : brown;
+    cursor   : pointer;
+}
+
+ /* empty cart  */
+
+ .empty-cartbox{
+    margin-top: 20px;
+    margin-bottom: 39px;
+   
+}
+.empty-cartbox .content-div{
+width:100%;
+height:auto;
+text-align: center;    
+box-shadow: 0px 0px 0px 1px #dad8d8;
+
+}
+.heading{
+color: rgb(122, 120, 120);
+}
+.cart-icon{
+font-size:250px;
+color: rgb(173 169 169 / 22%);;
+
+}
+.go-to-shop-button{
+background   :  #1544A0 !important;;
+color        : #FFF;
+/* / border-radius: 10px; / */
+box-shadow   : 0 0 20px #eee;
+cursor       : pointer;
+font-size    : 13px;
+padding      : 10px;
+font-weight  : bold;
+letter-spacing: 1px;
+margin-top:30px ;
+margin-bottom:20px;
+}
+
+.go-to-shop-button:hover {
+    background   : #3860AE !important;
+    color        : #FFF;
+  }
+  
+
+
+ /* end empty cart  */
+
+
+@media screen and (max-width:570px) {
+    .div-images {
+        width: 200px;
+    }
+}
+
+
+

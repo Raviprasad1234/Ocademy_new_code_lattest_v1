@@ -1,0 +1,185 @@
+.get-started-div-cards-div-cls {
+   margin-bottom: 0rem
+}
+
+.get-started-div-card-div-cls {
+   border       : 0;
+   border-radius: 0px;
+   min-width    : 10rem;
+   max-width    : 20rem;
+   min-height   : 300px;
+   box-shadow   : 0 0 5px #dedede;
+   padding      : 5px;
+
+}
+
+.get-started-div-card-div-cls:hover {
+   box-shadow   : 0 0 8px #dedede;
+   border-radius: 10px;
+}
+
+.get-started-div-card-text-cls .card-text {
+   text-align: start;
+   color     : #989898;
+   font-size : 12px;
+}
+.filtersearch{
+   margin: 0 15px 0px 0;
+   display: flex;
+   justify-content: flex-end;
+}
+.searchbtn{
+   background-color: #1a64cc;
+   box-shadow: 0 0 2px #3d5172;
+   color: #FFF !important;
+   font-size: 12px;
+   font-weight: 700;
+   border: 0;
+}
+
+.get-started-div-card-div-cls img {
+   max-height: 160px;
+}
+.get-started-div-card-text-cls .card-title {
+   text-align : start;
+   color      : #000000;
+   font-size  : 14px;
+   font-weight: 900;
+   text-transform: capitalize;
+}
+
+.get-started-div-card-text-cls .btn {
+   color      : #2d93cf;
+   font-size  : 13px;
+   font-weight: 400;
+}
+
+.get-started-div-card-text-cls .card-body {
+   padding-right: 0px !important;
+   padding-left : 0px !important;
+}
+
+
+.get-started-div-card-text-cls a {
+   position: absolute;
+   bottom  : 10px;
+   right   : 6px;
+}
+
+
+.get-started-div-img-cls {
+   width    : 35px;
+   max-width: 75px;
+   margin   : 15px;
+}
+
+.stream-btn-cls {
+   color        : #989898;
+   font-weight  : 700;
+   font-size    : 11px;
+   padding-left : 15px;
+   padding-right: 15px;
+}
+
+.mat-badge-content {
+   background: white;
+   color     : #989899;
+   border    : 1px solid #989899;
+}
+
+
+/* ravi new Cards section  */
+
+.dot-btn-cls {
+
+   position     : absolute;
+   right        : 10px;
+   top          : 8px;
+   padding      : 4px 8px;
+   margin       : 5px;
+   border       : 1px solid #989898;
+   background   : #fff;
+   color        : #1C56AE;
+   font-size    : 18px;
+   border-radius: 3px;
+}
+
+
+
+
+
+/* ravi new Cards section ends  */
+
+.course-card-progress-cls {
+   min-height: 2px;
+   max-height: 5px;
+   background: #989898;
+}
+
+.progress-bar-start-course-text-cls {
+   color      : #1C56AE;
+   font-weight: 900;
+   padding-top: 5px;
+}
+
+.progress-bar-percent-text-cls {
+   padding-top: 10px;
+   text-align : start;
+}
+
+.progress-bar-complete-color-cls {
+   background-color: #1C56AE;
+}
+
+.inactive-start-cls {
+   color: #989898;
+}
+
+.active-start-cls {
+   color: #1C56AE;
+}
+
+.get-started-div {
+   margin-top: 40px;
+}
+
+.header-div {
+   background-color: #1a64cc;
+   min-height      : 120px;
+}
+
+.header-div .heading {
+   color      : #eee;
+   padding-top: 15px;
+   font-weight: bold;
+   position   : relative;
+}
+
+.btnjoincls {
+   padding         : 5px 10px;
+   background-color: #1a64cc;
+   color           : #FFF !important;
+   font-size       : 13px;
+}
+
+.get-started-div-card-text-cls {
+   padding: 10px;
+}
+
+
+.customInputCls{
+   border: 1px solid #3d5172;
+   box-shadow: 0 0 2px #3d5172;
+   border-right:0;
+   color: #1a64cc;
+}
+.myonlineclases{
+   margin: 0 0 50px 0;
+}
+.myonlineclases > div{
+   padding: 8px;
+}
+
+.customInputCls::placeholder {
+   color: #1C56AE;
+ }

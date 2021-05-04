@@ -1,0 +1,1095 @@
+/* carosel img css  */
+#myCarousel-indicators>li {
+  border-radius   : 50%;
+  width           : 15px;
+  height          : 15px;
+  background-color: #989898 !important;
+  cursor          : pointer;
+  border          : none;
+}
+
+.carousel-indicators {
+  text-align: left;
+  float     : left;
+  left      : -10% !important;
+  bottom    : 5% !important;
+  right     : inherit;
+
+}
+
+.carousel-item {
+  position: relative;
+}
+
+.carousel-item:before {
+  content   : '';
+  display   : block;
+  position  : absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width     : 100%;
+  height    : 100%;
+  top       : 0;
+  left      : 0;
+  z-index   : 1;
+}
+
+.carousel-caption {
+  text-align: left;
+  float     : left;
+  left      : 5% !important;
+  bottom    : 35% !important;
+  right     : inherit;
+}
+
+.mylearningimg-carosel-cls {
+  width : 100%;
+  height: auto;
+}
+
+#myCarousel-indicators>li.active {
+  width           : 15px;
+  height          : 15px;
+  /* margin       : 10px; */
+  background-color: #1C56AE !important;
+}
+
+.lets-learning-cls h5 {
+  color: #1C56AE;
+}
+
+.lets-learning-cls .swiper-slide span.label-first-char {
+  min-height: auto;
+}
+
+/* end carosel img css  */
+
+
+/* tejeswar img slider css changes */
+
+
+
+
+
+/* tejeswar img slider css changes  end*/
+
+
+
+.lets-learning-main-cls {
+  min-height   : 180px;
+  max-height   : 220px;
+  min-width    : 220px;
+  box-shadow   : 0 0 1px #989898;
+  border-radius: 10px;
+  border       : 1px solid #dcdcdc;
+  cursor       : pointer;
+}
+
+.lets-heading-learning-cls p {
+  font-weight   : 900;
+  font-size     : 18px;
+  text-transform: capitalize;
+  white-space   : nowrap;
+  overflow      : hidden;
+  text-overflow : ellipsis;
+}
+
+.lets-learning-video-section-cls {
+  display: flex;
+}
+
+.lets-learning-video-section-title-cls {
+  display       : flex;
+  flex-direction: column;
+  margin-left   : 20px;
+}
+
+.lets-learning-video-section-cls img {
+  min-width : 50px;
+  max-width : 90px;
+  min-height: 80px;
+  max-height: 100px;
+}
+
+.lets-learning-video-section-title-cls {
+  display: flex;
+}
+
+.lets-learning-cls .lheading-cls {
+  padding-top   : 20px;
+  padding-bottom: 20px;
+  font-weight   : 900;
+}
+
+.mylaerning-img-cards-cls h4 {
+  font-weight: 900;
+  color      : #1C56AE;
+}
+
+
+.mylaerning-img-cards-cls h4 {
+  font-weight: 700;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: rgba(152, 152, 152, 0.4) !important;
+  right           : 10px;
+  color           : #1C56AE !important;
+  fill            : black !important;
+  stroke          : black !important;
+  border-radius   : 50%;
+  height          : 30px;
+  width           : 30px;
+  text-align      : center;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(152, 152, 152, 0.8) !important;
+}
+
+.topicnametxt {
+  margin        : 0 0 5px 0;
+  font-size     : 16px;
+  color         : #989898;
+  text-transform: capitalize;
+}
+
+.languagetxt {
+  font-size     : 14px;
+  color         : #000000;
+  margin        : 0 0 5px 0;
+  text-transform: capitalize;
+}
+
+.titletxt {
+  text-transform: capitalize;
+  color         : #000000;
+  margin        : 0 0 5px 0;
+  font-size     : 12px;
+}
+
+.swiper-button-prev:after {
+  position : relative;
+  left     : -2px;
+  font-size: 16px;
+}
+
+.swiper-button-next:after {
+  position : relative;
+  right    : -2px;
+  font-size: 16px;
+}
+
+/* short-courses-cls */
+
+.lets-short-and-sweet-main-cls {
+  min-width   : 220px;
+  /* border   : 1px solid #989898; */
+  cursor      : pointer;
+}
+
+.get-started-div-card-div-cls:hover {
+  box-shadow   : 2px 2px 4px #dedede;
+  border-radius: 10px;
+}
+
+.coverimage-cls {
+  height: 160px;
+}
+
+
+.addtocart {
+  background   : linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important;
+  border-radius: 6px;
+  box-shadow   : 0 0 20px #eee;
+  cursor       : pointer;
+  font-size    : 12px;
+  font-weight  : 100;
+  padding      : 5px;
+  color        : white;
+  margin-bottom: 10px;
+}
+
+
+/* ends short-courses-cls */
+
+
+/* sweet and short section css  */
+
+.dot-btn-cls {
+  position     : absolute;
+  right        : 10px;
+  top          : 8px;
+  padding      : 4px 8px;
+  margin       : 5px;
+  border       : 1px solid #989898;
+  background   : #fff;
+  color        : #1C56AE;
+  font-size    : 18px;
+  border-radius: 3px;
+}
+
+
+.dot-btn-cls:hover {
+  cursor: pointer;
+}
+
+
+.share-fav-cls {
+  position         : absolute;
+  padding          : 10px;
+  /* padding-bottom: 1px; */
+  height           : auto;
+  background-color : #fff;
+  letter-spacing   : 1px;
+  color            : #989898;
+  right            : 16px;
+  top              : 45px;
+  min-width        : 75px;
+  max-width        : 125px;
+  text-align       : start;
+  line-height      : 2;
+}
+
+.share-fav-cls p {
+  margin: 0px;
+}
+
+.share-fav-cls i {
+  cursor: pointer;
+}
+
+.share-fav-cls span:hover {
+  cursor: pointer;
+}
+
+.get-started-div-card-text-cls .card-text {
+  text-align: start;
+  color     : #989898;
+}
+
+.get-started-div-card-text-cls .card-title {
+  text-align    : start;
+  color         : #000000;
+  font-size     : 17px;
+  font-weight   : 900;
+  text-transform: capitalize;
+}
+
+.get-started-div-card-text-cls .btn {
+  color      : #2d93cf;
+  font-size  : 13px;
+  font-weight: 400;
+}
+
+.get-started-div-card-text-cls .card-body {
+  padding-right: 0px !important;
+  padding-left : 0px !important;
+}
+
+.get-started-div-card-text-cls a {
+  position : absolute;
+  /* bottom: -60px; */
+  bottom   : 10px;
+  right    : 6px;
+}
+
+.course-card-progress-cls {
+  min-height: 2px;
+  max-height: 5px;
+  background: #989898;
+}
+
+.progress-bar-start-course-text-cls {
+  color      : #1C56AE;
+  font-weight: 900;
+  padding-top: 5px;
+}
+
+.progress-bar-percent-text-cls {
+  padding-top: 10px;
+  text-align : start;
+}
+
+.progress-bar-complete-color-cls {
+  background-color: #1C56AE;
+}
+
+.inactive-start-cls {
+  color: #989898;
+}
+
+.active-start-cls {
+  color: #1C56AE;
+}
+
+.reset-btn-cls {
+  margin-top: 7px;
+  color     : #989898;
+  outline   : none;
+  border    : 0px;
+}
+
+
+.search-btn-cls {
+  padding-top: 5px;
+}
+
+.search-btn-cls .input-group-text {
+  background-color: #1C56AE;
+}
+
+.search-btn-cls .search-icon-cls {
+  color: #fff;
+}
+
+.cards-dropdown-cls label {
+  color: #989898;
+}
+
+.cards-dropdown-cls {
+  margin-right: 20px;
+}
+
+.cards-dropdown-cls select {
+  color : #1C56AE;
+  border: 1px solid #1C56AE;
+}
+
+.search-btn-cls ::placeholder {
+  color: #1C56AE;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.priceRating-div-sec-cls {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-around;
+}
+
+.priceRating-rating-sec-cls p {
+  padding: 0px;
+}
+
+.wishlist-price-sec-cls {
+  display        : flex;
+  flex-direction : row;
+  justify-content: flex-start;
+  padding-left   : 10px;
+}
+
+.wishlist-price-sec-cls p {
+  padding-right: 10px;
+}
+
+/* trusted by companies all of sizes css  */
+.trustedby-companies-all-sizes-cls h4 {
+  color: #1C56AE;
+}
+
+/* trusted by companies all of sizes css end  */
+
+/* end sweet and short section css  */
+
+/* courses get started section  */
+
+.main-search-section-cls h2 {
+  color    : #1C56AE;
+  margin   : 0;
+  font-size: 30px;
+}
+
+.main-search-section-cls h4 {
+  color      : #1C56AE;
+  margin     : 0;
+  font-size  : 24px;
+  font-weight: 700;
+}
+
+.mylaerning-img-cards-cls h5 {
+  color      : #2D93CF !important;
+  font-size  : 20px;
+  font-weight: 600;
+  margin     : 0;
+}
+
+.course-name-cls {
+  color      : #989898;
+  font-weight: 700;
+  font-size  : 12px;
+}
+
+.course-cat-cls {
+  color    : #2d93cf;
+  font-size: 12px;
+
+}
+
+.videoTagdiv {
+  background     : #2d93cf;
+  min-height     : 100%;
+  max-width      : 20%;
+  flex           : 1;
+  display        : flex;
+  justify-content: center;
+  min-height     : 120px;
+  align-items    : center;
+  text-transform : capitalize;
+}
+
+.rightfullwidth .results-courses-data-cls:nth-child(2n+1) .videoTagdiv {
+  background: #c27926;
+}
+
+.rightfullwidth .results-courses-data-cls:nth-child(2n+2) .videoTagdiv {
+  background: #8c0388;
+}
+
+.rightfullwidth .results-courses-data-cls:nth-child(2n+4) .videoTagdiv {
+  background: #267ac2;
+}
+
+.swiper-slide:nth-child(2n+1) .label-first-char {
+  background: #c27926;
+}
+
+.swiper-slide:nth-child(2n+2) .label-first-char {
+  background: #8c0388;
+}
+
+.swiper-slide:nth-child(2n+4) .label-first-char {
+  background: #267ac2;
+}
+
+
+.course-subcat-cls {
+  color    : #2d93cf;
+  font-size: 12px;
+}
+
+.showemptyCourses-cls .alert-danger {
+  display        : flex;
+  width          : 100%;
+  justify-content: center;
+  min-height     : 150px;
+  align-items    : center;
+}
+
+.course-name-studes-cls {
+  color      : #989898;
+  font-size  : 12px;
+  font-weight: 500;
+}
+
+.swiper-slide span.label-first-char {
+  font-size       : 40px;
+  color           : #FFF;
+  text-transform  : capitalize;
+  background-color: #ccc;
+  display         : flex;
+  align-items     : center;
+  padding         : 30px;
+  justify-content : center;
+  min-height      : 160px;
+}
+
+span.label-first-char {
+  font-size     : 40px;
+  color         : #FFF;
+  text-transform: capitalize;
+}
+
+.get-started-div-cards-div-cls {
+  margin-bottom: 3rem
+}
+
+.get-started-div-card-div-cls {
+  border       : 0;
+  border-radius: 10px;
+  min-width    : 10rem;
+  max-width    : 20rem;
+  min-height   : 260px;
+  box-shadow   : 1px 1px 2px #dedede;  
+}
+
+.get-started-div-card-div-cls .card-title{
+  min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+.swiper-container-autoheight .swiper-wrapper{
+  margin: 0px 0 20px;
+}
+
+.get-started-div-card-div-cls span{
+  width: 100%;
+}
+
+.get-started-div-card-text-cls.card-body {
+  padding: 1rem;
+}
+
+.get-started-div-card-div-cls:hover {
+  box-shadow   : 2px 2px 4px #dedede;
+  border-radius: 10px;
+}
+
+.get-started-div-card-text-cls .card-text {
+  text-align      : start;
+  color           : #989898;
+  /* border-bottom: 1px solid #989898; */
+  /* padding-left : 0px; */
+  /* padding-right: 0px; */
+}
+
+.get-started-div-card-text-cls .card-title {
+  text-align    : start;
+  color         : #000000 !important;
+  font-size     : 17px;
+  font-weight   : 900;
+  text-transform: capitalize;
+  /* line-height: 2; */
+}
+
+.get-started-div-card-text-cls .btn {
+  color      : #2d93cf;
+  font-size  : 13px;
+  font-weight: 400;
+}
+
+.get-started-div-card-text-cls .card-body {
+  padding-right: 0px !important;
+  padding-left : 0px !important;
+}
+
+
+.get-started-div-card-text-cls a {
+  position : absolute;
+  /* bottom: -60px; */
+  bottom   : 10px;
+  right    : 6px;
+}
+
+
+.get-started-div-img-cls {
+  width    : 35px;
+  max-width: 75px;
+  margin   : 15px;
+}
+
+
+.priceRating-div-sec-cls {
+  display        : flex;
+  flex-direction : column;
+  justify-content: flex-start;
+  align-items    : flex-start;
+  text-align     : left;
+}
+
+
+.priceRating-rating-sec-cls p {
+  padding: 0px;
+}
+
+.wishlist-price-sec-cls {
+  display        : flex;
+  flex-direction : row;
+  justify-content: flex-start;
+  padding-left   : 0px;
+}
+
+.priceRating-rating-sec-cls {
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  width          : 100%;
+}
+
+.priceRating-ratNum-sec-cls p {
+  text-transform: capitalize;
+}
+
+.wishlist-price-sec-cls p {
+  padding-right: 10px;
+  margin       : 0;
+}
+
+.priceRating-ratNum-sec-cls p,
+.priceRating-rating-sec-cls p,
+.priceRating-population-sec-cls p {
+  margin       : 0;
+  margin-bottom: 5px;
+}
+
+.course-card-progress-cls {
+  min-height: 2px;
+  max-height: 5px;
+  background: #989898;
+}
+
+.progress-bar-start-course-text-cls {
+  color      : #1C56AE;
+  font-weight: 900;
+  padding-top: 5px;
+}
+
+.progress-bar-percent-text-cls {
+  padding-top: 10px;
+  text-align : start;
+}
+
+.progress-bar-complete-color-cls {
+  background-color: #1C56AE;
+}
+
+
+
+
+/* end courses get started section  */
+
+
+
+
+/* students also learn card  */
+
+.students-also-learn-card-cls .card-body {
+  align-items    : center;
+  justify-content: center;
+  display        : flex;
+}
+
+.students-also-learn-card-cls p {
+  margin     : auto;
+  color      : #2D93CF !important;
+  font-weight: 700;
+}
+
+/* 1C56AE */
+
+/* students also learn card end  */
+
+
+/* main-search-page-cls   */
+
+.main-search-page-cls .courses-des-cls p {
+  color: #989898;
+}
+
+.main-search-page-cls .filter-btn-cls {
+  display         : block;
+  width           : 100%;
+  border          : 1px solid #2D93CF;
+  background-color: #ffffff;
+  color           : #2D93CF;
+  /* padding      : 14px 28px; */
+  padding         : 8px;
+  font-size       : 16px;
+  cursor          : pointer;
+  text-align      : center;
+}
+
+.main-search-page-cls .filter-btn-icon-cls {
+  color: #2d93cf;
+}
+
+.main-search-page-cls .filter-btn-cls:hover {
+
+  outline: none;
+
+}
+
+
+/* main-search-page-cls end  */
+
+
+/* main-search page cls dropdown css  */
+.filter-fropdown-cearch-cls {
+  -webkit-appearance: none;
+  -moz-appearance   : none;
+  -ms-appearance    : none;
+  appearance        : none;
+  outline           : 0;
+  box-shadow        : none;
+  border            : 0px !important;
+  background        : #ffffff;
+  color             : #998899;
+  background-image  : none;
+}
+
+/* Remove IE arrow */
+.filter-fropdown-cearch-cls::-ms-expand {
+  display: none;
+}
+
+/* Custom Select */
+.filter-dropdown-search-div-cls {
+  position     : relative;
+  display      : flex;
+  width        : 20em;
+  height       : 3em;
+  line-height  : 3;
+  background   : #ffffff;
+  border       : 1px solid #989898;
+  overflow     : hidden;
+  border-radius: .25em;
+}
+
+.filter-fropdown-cearch-cls {
+  flex   : 1;
+  padding: 0 .5em;
+  color  : #989898;
+  cursor : pointer;
+}
+
+/* Arrow */
+.filter-dropdown-search-div-cls::after {
+  content           : '\25BC';
+  position          : absolute;
+  top               : 0;
+  right             : 0;
+  padding           : 0 1em;
+  background        : #ffffff;
+  cursor            : pointer;
+  color             : #989898;
+  pointer-events    : none;
+  -webkit-transition: .25s all ease;
+  -o-transition     : .25s all ease;
+  transition        : .25s all ease;
+}
+
+/* Transition */
+.filter-dropdown-search-div-cls:hover::after {
+  color: #989898;
+}
+
+
+
+
+
+/* end main-search page cls dp css end  */
+
+
+
+
+/* filter sort  dropdown   */
+
+
+
+
+.sidebar-filter-heading-cls {
+  padding        : 10px 0;
+  display        : flex;
+  align-items    : flex-start;
+  justify-content: space-between;
+  /* padding     : 1.6rem 0; */
+}
+
+.showfilerparent .rightfullwidth {
+  flex     : 1;
+  max-width: 100%;
+}
+
+.hidefilerparent .rightfullwidth {
+  flex     : 0 0 100%;
+  max-width: 100%;
+}
+
+.showfiler-cls {
+  /* transition: all 0.5s ease;;
+  width:100% !important;
+  color: red; */
+  width  : 100% !important;
+  display: block;
+}
+
+.hidefiler-cls {
+  /* width:0% !important; */
+  display           : none;
+  position          : relative;
+  width             : 0% !important;
+  height            : 100% !important;
+  overflow          : hidden;
+  -webkit-transition: width 0.8s linear;
+  -moz-transition   : width 0.8s linear;
+  -o-transition     : width 0.8s linear;
+  -ms-transition    : width 0.8s linear;
+  transition        : width 0.8s linear;
+}
+
+.price-cls {
+  text-align: end;
+}
+
+.results-courses-data-cls {
+  border-bottom  : 1px solid #9898983d;
+  padding-bottom : 5px;
+  align-items    : center;
+  display        : flex;
+  justify-content: flex-start;
+  cursor         : pointer;
+}
+
+.carousel-caption h3 {
+  font-size  : 40px;
+  font-weight: 700;
+}
+
+.videoTagdiv {
+  margin-right: 20px;
+}
+
+.results-courses-data-cls p {
+  margin        : 0px;
+  color         : #989898;
+  text-transform: capitalize;
+}
+
+.right-content-div {
+  display        : flex;
+  justify-content: space-between;
+  flex           : 1;
+}
+
+.results-courses-data-cls h5 {
+  color         : #000000;
+  font-weight   : 700;
+  text-transform: capitalize;
+}
+
+.discount-price-cls {
+  color      : #000000;
+  font-weight: 700;
+}
+
+.showemptyCourses-cls {
+  display        : flex;
+  justify-content: center;
+}
+
+/* end filter sort dropdown  */
+
+
+
+.search-header {
+  padding    : 10px 0;
+  font-weight: 700;
+  margin     : 0;
+}
+
+.icon-right {
+  font-weight: 500;
+  color      : #989898;
+  margin     : 0 5px;
+}
+
+.breadcomb {
+  display    : flex;
+  align-items: center;
+}
+
+.header-cls {
+  font-weight: 700;
+}
+
+.paginationDiv {
+  display        : flex;
+  justify-content: center;
+  margin-top     : 20px;
+}
+
+.paginationDiv .ngx-pagination {
+  margin: 0;
+}
+
+.trusted-companies {
+  margin: 15px 0 35px 0;
+}
+
+.trusted-companies>div {
+  padding: 0 5px;
+}
+
+.trusted-companies>div:first-child {
+  padding-left: 0;
+}
+
+.trusted-companies>div:last-child {
+  padding-right: 0;
+}
+
+.trusted-companies>div .card-body {
+  padding: 1rem 30px;
+}
+
+.trusted-companies div p {
+  margin     : 0;
+  padding    : 0;
+  font-size  : 30px;
+  font-weight: bold;
+  color      : #989898;
+}
+
+section.trustedby-companies-all-sizes-cls {
+  margin-top: 30px;
+}
+
+.crse_txt_card p {
+  margin: 0;
+}
+
+.lets-short-and-sweet-main-cls {
+  position: relative;
+}
+
+.popovercls {
+  display      : none;
+  position     : absolute;
+  top          : 0;
+  right        : -270px;
+  background   : #FFF;
+  padding      : 10px;
+  border-radius: 5px;
+  box-shadow   : 0 0 5px #ccc;
+  z-index      : 9;
+}
+
+.lets-short-and-sweet-main-cls:nth-child(2n+4) .popovercls {
+  left: -270px;
+}
+
+.lets-short-and-sweet-main-cls:hover .popovercls {
+  display: inline-block;
+  width  : 270px;
+}
+
+.card-title,
+.popovercls p {
+  text-transform: capitalize;
+}
+
+.addtocart {
+  background   : linear-gradient(to right, #2b8dcc 0%, #2575be 59%, #1e5cb1 100%) !important;
+  border-radius: 6px;
+  box-shadow   : 0 0 20px #eee;
+  cursor       : pointer;
+  font-size    : 17px;
+  font-weight  : 400;
+  padding      : 10px;
+  color        : white;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 1441px){
+  .carousel-caption h3{
+    font-size: 70px;
+  }
+  .carousel-caption p{
+    font-size: 40px;
+  }
+}
+@media (max-width: 1366px){
+  .carousel-caption h3{
+    font-size: 50px;
+  }
+  .carousel-caption p{
+    font-size: 30px;
+  }
+}
+
+
+@media (max-width: 767px){
+  .carousel-caption h3{
+    font-size: 30px;
+  }
+  .carousel-caption p{
+    font-size: 16px;
+  }
+  .carousel-caption{
+    bottom:0 !important
+  }
+  .search-header{
+    padding: 0 10px;
+  }
+  .get-started-div-card-div-cls{
+    min-width:auto;
+    max-width:inherit !important;
+  }
+  .lets-learning-video-section-cls img {
+     min-width: inherit; 
+     max-width: inherit; 
+     min-height: inherit; 
+     max-height: inherit; 
+    height: auto;
+    width: 150px;
+  }
+  
+  .coverimage-cls{
+    height: auto;
+  }
+  .main-search-section-cls h2{
+    font-size: 20px;
+  }
+  .main-search-section-cls h4{
+    font-size: 18px;
+  }
+  .get-started-div-card-div-cls{
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+@media (max-width: 540px){
+  .carousel-caption{
+    bottom: 20px !important;
+  }
+  .carousel-caption h3 {
+    font-size: 20px;
+}
+}
+
+@media (min-width:320px) {
+  .get-started-div-cards-div-cls {
+    display        : flex;
+    justify-content: center;
+  }
+
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+
+@media (min-width:480px) {
+  .get-started-div-cards-div-cls {
+    display        : flex;
+    justify-content: center;
+  }
+
+  /* smartphones, Android phones, landscape iPhone */
+}
+
+@media (min-width:600px) {
+
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+
+@media (min-width:801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+  /* hi-res laptops and desktops */
+}
+
+
+
+
+/* end filter sort dropdown  */

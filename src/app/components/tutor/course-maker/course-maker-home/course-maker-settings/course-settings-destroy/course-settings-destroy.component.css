@@ -1,0 +1,60 @@
+h3.brand-head {
+    color: #989898;
+    font-size: 26px;
+}
+
+h4.course-name-p {
+    color: #989898;
+    font-size: 18px;
+    margin: 20px 0 0 0;
+}
+
+.branding p,
+.short-descr-div p,
+.description-div p,
+.cover-img p {
+    margin: 5px 0;
+    color: #989898;
+    font-size: 12px;
+}
+
+.custome-btn .mat-radio-button {
+    display: block !important;
+}
+
+.custome-btn .mat-radio-label-content {
+    color: #989898;
+}
+
+.customtitle {
+    color: #989898;
+    font-weight: 700;
+}
+
+.modaltext p {
+    font-size: 16px;
+    color: #989898;
+    margin-bottom: 30px;
+}
+
+.modaltext input {
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    width: 250px;
+    height: 40px;
+    color: #989898;
+    outline: none;
+}
+
+.customFooter {
+    justify-content: center;
+    border-top: 0;
+}
+
+.customFooter button,
+.deletecourse {
+    background: linear-gradient(to right, #2D93CF, #1C56AE) !important;
+    padding: 5px 20px;
+    border: 0;
+}

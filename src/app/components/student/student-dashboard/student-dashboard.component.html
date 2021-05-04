@@ -1,0 +1,630 @@
+<!-- <app-main-home-header></app-main-home-header> -->
+<!-- <app-student-header></app-student-header> -->
+<app-global-header></app-global-header>
+<section class="">
+  <div class="">
+    <nav class="navbar navbar-light student-navbar-div-cls">
+      <div class=" main-div-text-cls  container">
+        <h4 class="main-heading-cls">My Learning</h4>
+      </div>
+
+      <div class="container  nav-list-div-cls">
+        <ul class="nav student-nav-tabs-cls justify-content-start" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#allCourses" role="tab"
+              aria-controls="home" aria-selected="true">
+              All Courses
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" (click)="ReloadWishListMethod()"  data-toggle="tab" href="#wishlist" role="tab" aria-controls="profile"
+              aria-selected="false">
+              Wishlist
+            </a>
+          </li>
+         
+          <!-- <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Archived" role="tab" aria-controls="profile"
+              aria-selected="false">
+              Archived
+            </a>
+          </li> -->
+       
+        </ul>
+      </div>
+    </nav>
+  </div>   
+
+
+  <div class="container">
+    <div class="tab-content tab-content-custom-cls">
+      <div id="allCourses" role="tabpanel" class="tab-pane  in active">
+
+        <!-- cards data  -->
+
+        <div class="cards-dropdown-cls pb-4">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+              <form name="form" (ngSubmit)="f.form.valid && onSubmitMyLearningMethod()" #f="ngForm" novalidate>
+                <div class="form-row">
+
+                  <div class="col-md-2">
+                  
+                    <!-- <div class="form-group">
+                      <label for="exampleFormControlSelect1">Sort By</label>
+                    <select class="form-control" name="sortBy" (change)="changesortBy($event)"
+                      [(ngModel)]="myLearningObj.sortBy" #sortBy="ngModel" id="exampleFormControlSelect1">
+                      <option value="Accessed" selected>Recently Accessed</option>
+                      <option value="Enrolled">Recently Enrolled</option>
+                      <option value="Ascending">Title : A-to-Z</option>
+                      <option value="decending">Title : Z-to-A</option>
+                    </div>
+                    </select> -->
+                  
+                  </div>
+
+                  <div class="col-md-2">
+                  
+                    <!-- <div class="form-group">
+                      <label for="exampleFormControlSe">Filter By</label>
+                    <select class="form-control" name="filterBy" [(ngModel)]="myLearningObj.filterBy"
+                      #filterBy="ngModel" id="exampleFormControlSe">
+                      <option value="AllCat" selected>All Categories</option>
+                      <option value="ItSoft">IT & Software</option>
+                      <option value="teachAcademy">Teaching & Academics</option>
+                      <option value="Archived">Archived</option>
+                    </select> </div>-->
+              
+                  </div>
+
+                  <div class="mt-2 col-md-2">
+                   
+                   
+                    <!-- <div class="form-group"> <label for="exampleFormContro"> </label>
+                    <select class="form-control" name="progressBy" [(ngModel)]="myLearningObj.progressBy"
+                      #progressBy="ngModel" id="exampleFormContro">
+                      <option value="Progress" selected>Progress</option>
+                      <option value="notStarted">Not Started</option>
+                    </select> </div>-->
+                
+                  </div>
+
+
+                  <div class="mt-2 col-md-2">
+                 
+                   
+                    <!-- <div class="form-group"><label for="exampleFor"> </label>
+                    <select class="form-control" name="instructorBy" [(ngModel)]="myLearningObj.instructorBy"
+                      #instructorBy="ngModel" id="exampleFor">
+                      <option value="Instructor" selected>Instructor</option>
+                      <option value="GlobalTeam">Global Team</option>
+                      <option value="OcademyTeam">Ocademy Team</option>
+                    </select></div> -->
+               
+                  </div>
+
+                  <div class="mt-4 col-md-1">
+                    <!-- <button type="submit" class="btn btn  reset-btn-cls ">Reset</button> -->
+                    <!-- <button class="btn btn reset-btn-cls" type="reset">Reset</button> -->
+                  </div>
+
+
+
+                  <div class="form-group  search-btn-cls  mt-4 col-md-3"> 
+                    <div class="input-group">
+                      <input class="form-control py-2 border-right-0 border" type="search"
+                         [(ngModel)]="searchformyLearning"
+                         name="searchformyLearning"
+                        placeholder="Search my Courses" id="example-search-input">
+                      <span class="input-group-append">
+                        <div class="input-group-text "><i class="fa fa-search search-icon-cls"></i></div>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="get-started-div" >
+       
+             <section   class="my-learning-section-cls"  *ngIf="learningdataLoaded; else skeletonBoolen" >
+            <ng-container 
+            *ngIf="( getAllStudentCoursesDataArr | filter : searchformyLearning) as result">
+
+
+            <div *ngFor="let c of result | paginate:{itemsPerPage:8,currentPage:cp} ; let i = index"
+              class="get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-3 col-xs-6">
+              <div class=" card text-center get-started-div-card-div-cls h-100  "  >
+                <!-- <img   src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/event1.jpg" 
+                   class="img-fluid" alt="">  -->
+                  
+                 <span *ngIf="(c.coverImageUrl !== undefined && c.coverImageUrl !== null)">
+                    <img class="img-fluid img-thumbnail coverimage-cls" src="{{c.coverImageUrl}}" alt="">
+                </span>
+
+                       
+                <span  *ngIf="(c.coverImageUrl == null)" >
+                    <div class="video_player1">
+                        <!-- <video (playing)="onPlayingVideo($event)" width="100%" height="100%" controls>
+                            <source src="{{c.fileUrl}}">
+                        </video> -->
+                        <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt=""> -->
+                        <div class="crse_txt_card">
+                            <p>
+                                <span class="label-first-char"> {{c.courseTitle | slice:0:2 }} </span>
+                                <!-- <span class="label-first-char">J</span>
+                                <span class="label-second-char">a</span> -->
+                            </p>
+                        </div>
+                    </div>
+                </span>
+                
+                
+
+                <!-- <span class="card-slice-name">{{c.courseTitle | slice: 0:2}}</span> -->
+
+
+                <!-- <i class="fa fa-ellipsis-v dot-btn-cls" aria-hidden="true"></i> -->
+
+                <i class="fa fa-ellipsis-v dot-btn-cls"  (click)="showDotsMethod(i , c)" aria-hidden="true"></i>
+
+                <div class="share-fav-cls" *ngIf="c.showsharediv">
+                  <!-- <p>
+                    <i class="fa fa-share  " aria-hidden="true"></i>
+                    <span>share </span>
+                  </p> -->
+                  <p (click)="openShareCourse(c.courseTitle,c.id)">
+                    <i class="fa fa-share  " aria-hidden="true"></i>
+                    <span>share </span>
+                  </p>
+                  <!-- <p  (click)="AddToWishListMethod(c)"  >
+                    <i class="fa fa-heart-o"    aria-hidden="true"></i>
+                    <span> favourite </span>
+                  </p> -->
+                  <!-- <p>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <span> Archived </span>
+                  </p> -->
+
+                  <!-- share the course  -->
+
+
+                  <div id="openshareModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                  aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                         
+                          <div style="display: flex;justify-content: space-between;">
+                              <div class="modal-header">
+                                  <h5 class="modal-title oa-gry">Share this course</h5>
+                              </div>
+                              <div  (click)="closeShareAlertIcon()">
+                                  <i class="fa fa-times" aria-hidden="true" style="padding: 20px;
+                                          cursor: pointer;font-size:20px;color: rgb(123, 128, 128);"></i>
+                              </div>
+                          </div>
+      
+                          
+      
+                          <div class="modal-body">
+      
+                              <div class="row">
+                                  <div class="col">
+                                      <div class="input-group mb-3">
+                                          <input type="text" id="myInput" [class]="'miggk'" [(ngModel)]="shareUrl"
+                                              value="{{shareUrl}}" class="form-control" readonly>
+                                          <div class="input-group-append">
+      
+                                              <button style="cursor: pointer;" data-clipboard-action="copy"
+                                                  [attr.data-clipboard-target]="'.miggk'"
+                                                  class="input-group-text button btn  left fit1 btn-success"
+                                                  id="basic-addon2">
+                                                  Copy</button>
+                                          </div>
+                                      </div>
+      
+                                      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                                              <button type="button" class="btn btn-secondary"
+                                                  (click)="openShare('twitter')">twitter</button>
+                                          </div>
+                                          <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                              <button type="button" class="btn btn-secondary"
+                                                  (click)="openShare('facebook')">facebook</button>
+                                          </div>
+                                          <div class="btn-group" role="group" aria-label="Third group">
+                                              <button type="button" class="btn btn-secondary"
+                                                  (click)="openShare('whatsapp')">Whats app</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
+
+
+
+                  <!-- end share course  -->
+
+
+                </div>
+
+                <!-- <div class="top">
+                  <a class="btn btn-primary example" href="#" data-toggle="popover" data-content="Popover text">Top</a>
+                </div> -->
+
+
+                <div    (click)="innerviewpage(c['id'], c['courseTitle'])"   class="get-started-div-card-text-cls card-body">
+                  <h5 class="card-title">{{c.courseTitle}}</h5>
+                  <p class="card-text">
+                    {{c.topic}}
+                  </p>
+                  <!-- <div class="progress  course-card-progress-cls">
+                    <div class="progress-bar progress-bar-complete-color-cls" style="width:70%"></div>
+                  </div> -->
+
+
+                  <div *ngIf="c.CStarted">
+                    <div class="pull-left">
+                      <p class="card-text progress-bar-percent-text-cls">
+                        {{c.CratingPrecent}}% Complete
+                      </p>
+                    </div>
+                    <div class="pull-right">
+                      <p class="progress-bar-percent-text-cls">
+                        <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                        <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                        <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                        <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                        <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i>
+                      </p>
+                    </div>
+                  </div>
+
+                  <ng-container *ngIf="!c.CStarted">
+                    <div class="pull-left">
+                      <p class=" progress-bar-start-course-text-cls">
+                        Start Course
+                      </p>
+                    </div>
+                    <div class="pull-right">
+                    </div>
+                  </ng-container>
+
+                </div>
+              </div>
+            </div>
+
+            <ng-container *ngIf="result.length === 0">
+              <div class="alert alert-primary" style="text-align: center; display: block;width: 100%;" role="alert">
+                  No Courses Available..!
+                </div>
+             </ng-container>  
+
+
+
+            </ng-container>
+
+            </section> 
+
+
+
+             <ng-template   #skeletonBoolen>  
+
+              <div class="row"> 
+
+                <div class=" get-started-div-cards-div-cls  col-sm-6 col-md-6 col-lg-3 col-xs-6 ">
+                  <div class="p-grid ">
+                    <div class="p-field p-col-12 p-md-6">
+                        <div  style="padding: 5px;">
+                          <img  class="img-fluid img-thumbnail coverimage-cls" src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt="">
+                        </div>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="15rem" ></p-skeleton>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="8rem"></p-skeleton>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="10rem"></p-skeleton>
+                    </div>
+                  </div>
+                  </div>
+    
+    
+                  <div class=" get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-3 col-xs-6 ">
+                <div class="p-grid ">
+                    <div class="p-field p-col-12 p-md-6">
+                        <div  style="padding: 5px;">
+                          <img  class="img-fluid img-thumbnail coverimage-cls" src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt="">
+                        </div>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="15rem" ></p-skeleton>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="8rem"></p-skeleton>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="10rem"></p-skeleton>
+                    </div>
+                  </div>
+                  </div>
+    
+    
+                  <div class=" get-started-div-cards-div-cls  col-sm-6 col-md-6 col-lg-3 col-xs-6">
+                <div class="p-grid ">
+                    <div class="p-field p-col-12 p-md-6">
+                        <div  style="padding: 5px;">
+                          <img  class="img-fluid img-thumbnail coverimage-cls" src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt="">
+                        </div>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="15rem" ></p-skeleton>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="8rem"></p-skeleton>
+                        <p-skeleton styleClass="mb-2" height="2rem" width="10rem"></p-skeleton>
+                    </div>
+                  </div>
+                  </div>
+    
+    
+                  <div class=" get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-3 col-xs-6">
+                    <div class="p-grid ">
+                        <div class="p-field p-col-12 p-md-6">
+                            <div  style="padding: 5px;">
+                              <img  class="img-fluid img-thumbnail coverimage-cls" src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt="">
+                            </div>
+                            <p-skeleton styleClass="mb-2" height="2rem" width="15rem" ></p-skeleton>
+                            <p-skeleton styleClass="mb-2" height="2rem" width="8rem"></p-skeleton>
+                            <p-skeleton styleClass="mb-2" height="2rem" width="10rem"></p-skeleton>
+                        </div>
+                      </div>
+                  </div>
+    
+
+              </div>
+           
+           </ng-template> 
+
+
+
+
+            <!-- end ng for cards  -->
+          <div class="paginationDiv">
+            <pagination-controls autoHide="true" responsive="true" (pageChange)="cp=$event" class=" pagination">
+            </pagination-controls>
+          </div>
+        </div>
+
+
+        <!-- end cards data  -->
+
+      </div>
+      <div id="wishlist" role="tabpanel" class="tab-pane fade">
+        <div class="cards-dropdown-cls pb-4">
+          <div class="row justify-content-end ">
+            <div class="">
+              <form>
+                <div class="form-group  search-btn-cls  mt-4 ">
+                 
+                  <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search"
+                    [(ngModel)]="wishlistsearch"
+                    name="wishlistsearch"
+                      placeholder="Search my Courses">
+                    <span class="input-group-append">
+                      <div class="input-group-text "><i class="fa fa-search search-icon-cls"></i></div>
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="wishlist-data-cls">
+          <!-- test wish list  -->
+          <div class="get-started-div">
+            <div class="row mb-0">
+
+
+              <!-- wish list Arr -->
+
+              <!-- AddwishlistDataArr -->
+              <!-- getwishListArr -->
+
+              <ng-container *ngIf="( getwishListArr | filter:wishlistsearch) as result">
+
+
+              <div 
+              *ngFor="let w of result ; let i = index"
+              (click)="addtocartviewpage(w.id, w.courseTitle,w.category,w.subCategory,w.topic)"
+              class="get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-3 col-xs-6">
+                <div class=" card text-center get-started-div-card-div-cls h-100  ">
+                  <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/event1.jpg" alt=""> -->
+                  <!-- <span class="card-slice-name">{{w.courseTitle | slice: 0:2}}</span> -->
+
+                  <span *ngIf="(w.coverImageUrl !== undefined && w.coverImageUrl !== null)">
+                    <img class="img-fluid img-thumbnail coverimage-cls" src="{{w.coverImageUrl}}" alt="">
+                </span>
+
+                       
+                <span  *ngIf="(w.coverImageUrl == null)" >
+                    <div class="video_player1">
+                        <!-- <video (playing)="onPlayingVideo($event)" width="100%" height="100%" controls>
+                            <source src="{{c.fileUrl}}">
+                        </video> -->
+                        <!-- <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/placeholder.png" alt=""> -->
+                        <div class="crse_txt_card">
+                            <p>
+                                <span class="label-first-char"> {{w.courseTitle | slice:0:2 }} </span>
+                                <!-- <span class="label-first-char">J</span>
+                                <span class="label-second-char">a</span> -->
+                            </p>
+                        </div>
+
+                    </div>
+                </span>
+             
+
+
+                  <i class="fa fa-heart-o dot-heart-btn-cls " aria-hidden="true"></i>
+                  <!-- <i class="fa fa-ellipsis-v dot-btn-cls" aria-hidden="true"></i> -->
+                  <div class="get-started-div-card-text-cls card-body">
+                    
+                    <p class="card-title">
+                      {{w.courseTitle}}
+                    </p>
+                    <p class="card-text">
+                      <!-- Coder , The IDA for Everyone, instructor Account -->
+                      {{w.subCategory}}
+                    </p>
+                    <!-- <div class="progress  course-card-progress-cls">
+                      <div class="progress-bar progress-bar-complete-color-cls" style="width:70%"></div>
+                    </div> -->
+                    <div class="priceRating-div-sec-cls mt-3">
+                      <div class="priceRating-ratNum-sec-cls">
+                        <p>
+                          4.0
+                        </p>
+                      </div>
+
+                      <div class="priceRating-rating-sec-cls">
+                        <p class="progress-bar-percent-text-cls">
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                          <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i>
+                        </p>
+                      </div>
+
+                      <div class="priceRating-population-sec-cls">
+                           <p>  {{w.courseType}} </p>  
+                      
+                      </div>
+                    </div>
+                  
+                    <div class="wishlist-price-sec-cls">
+                      <i _ngcontent-lpf-c166="" aria-hidden="true" class="fa fa-usd"></i>
+                      <p  style="line-height: 1;
+                      padding-right: 11px;
+                      padding-left: 10px;" > {{w.price}} </p>
+                      <!-- <p> <s>{{w.price}}</s> </p> -->
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+
+              <ng-container *ngIf="result.length === 0">
+                <div class="alert alert-primary" style="text-align: center; display: block;width: 100%;" role="alert">
+                    No Courses Available..!
+                  </div>
+                </ng-container>  
+
+                </ng-container>
+
+
+
+
+
+
+
+
+
+
+              <!-- end wish list Arr  -->
+
+
+
+       
+     
+
+       
+
+            </div>
+          </div>
+          <!-- end test wish list  -->
+        </div>
+
+      </div>
+
+      <div id="Archived" role="tabpanel" class="tab-pane fade">
+        <div class="cards-dropdown-cls pb-4">
+          <div class="row justify-content-end ">
+            <div class="">
+              <form>
+                <div class="form-group  search-btn-cls  mt-4 ">
+                  <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search"
+                      placeholder="Search my Courses">
+                    <span class="input-group-append">
+                      <div class="input-group-text "><i class="fa fa-search search-icon-cls"></i></div>
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="wishlist-data-cls">
+          <!-- test wish list  -->
+          <div class="get-started-div">
+            <div class="row mb-0">
+
+              <div class="get-started-div-cards-div-cls col-sm-6 col-md-6 col-lg-3 col-xs-6">
+                <div class=" card text-center get-started-div-card-div-cls  h-100  ">
+                  <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/event1.jpg" alt="">
+                  <i class="fa fa-ellipsis-v dot-btn-cls" (click)="showArchivedDataMethod()" aria-hidden="true"></i>
+
+                  <div class="share-unarchive-cls" *ngIf="showArchivedData">
+                    <p>
+                      <i class="fa fa-trash-o" aria-hidden="true"></i>
+                      Unarchive
+                    </p>
+                  </div>
+
+
+                  <div class="get-started-div-card-text-cls card-body">
+                    <h5 class="card-title">The Business Intelligent Analyst Course 2020</h5>
+                    <p class="card-text">
+                      Coder , The IDA for Everyone, instructor Account
+                    </p>
+                    <!-- <div class="progress  course-card-progress-cls">
+                      <div class="progress-bar progress-bar-complete-color-cls" style="width:70%"></div>
+                    </div> -->
+                    <div class="pull-left">
+                      <p class=" progress-bar-start-course-text-cls">
+                        Start Course
+                      </p>
+                    </div>
+                    <div class="pull-right">
+                      <!-- <p class="progress-bar-percent-text-cls">
+                                    <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                    <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                    <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                    <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                    <i class="fa fa-star active-start-cls" aria-hidden="true"></i>
+                                    <i class="fa fa-star inactive-start-cls" aria-hidden="true"></i>
+                                </p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            
+
+
+            </div>
+          </div>
+          <!-- end test wish list  -->
+        </div>
+
+      </div>
+    </div>
+    <!-- <div class=" mb-5 mt-5 alert alert-primary text-center nocontentmessage"  role="alert">
+      Not Available!
+    </div> -->
+  </div>
+
+
+</section>
+
+<app-student-footer></app-student-footer>

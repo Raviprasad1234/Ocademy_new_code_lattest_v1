@@ -1,0 +1,167 @@
+/* You can add global styles to this file, and also import other style files */
+
+body { margin: 0;  }
+
+.wrapper{
+    position: relative;
+    height: auto;
+    overflow: hidden;
+}
+
+
+html, body { 
+    height: 100%;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+ }
+
+
+/* common color codes */
+
+img{
+    width:100%;
+}
+
+/* light blue color */
+.oa-ltblue{
+    color : #2D93CF !important;
+}
+/* dark blue color */
+.oa-drblue{
+    color:#1C56AE !important;
+}
+/* white color */
+.oa-wht{
+    color:#FFFFFF !important;
+}
+/* black color */
+.oa-blk{
+    color: #000000 !important;
+}
+/* grey color */
+.oa-gry{
+    font-weight: bold;
+    color : #3860AE !important;
+}
+/* background light blue */
+.oa-bg-lblue{
+    background-color: #2D93CF !important;
+}
+/* background dark blue */
+.oa-bg-dblue{
+    background-color: #1C56AE !important;
+}
+/* background gradien blue left to right */
+.oa-bg-grdnt-lr{
+    background: #3860AE !important;
+}
+.oa-bg-grdnt-lr:hover{
+    background: #193772 !important;
+}
+/* background gradien blue right to left */
+.oa-bg-grdnt-rl{
+    background: linear-gradient(to left,#2D93CF ,#1C56AE) !important;
+}
+/* background gradien blue top to bottom */
+.oa-bg-grdnt-tb{
+    background: #3860AE !important;
+}
+/* background gradien blue bottom to top */
+.oa-bg-grdnt-bt{
+    background: linear-gradient(to top,#2D93CF ,#1C56AE) !important;
+}
+
+/* anchor button */
+.main_btn_a{
+    display: inline-block;
+    background:inherit;
+    padding: 0 38px;
+    color: #fff;
+    /* font-family: montserrat,sans-serif; */
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    line-height: 40px;
+    text-decoration: none !important;
+    outline: none!important;
+    text-align: center;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+    font-weight: normal;
+}
+.main_btn_a:hover{
+    color: #fff;
+}
+
+.ngx-pagination a, .ngx-pagination button{
+    outline: none;
+}
+
+.p-hide-paginator.p-carousel-indicators{
+    display: none !important;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    margin: 20px 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px !important;
+}
+.alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    margin: 20px 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px !important;
+}
+
+
+@font-face{
+    font-family:Poppins-Bold;
+    /* / src:url(/assets/fonts/Poppins-Bold.ttf); / */
+    src:url(./assets/fonts/Poppins-Bold.ttf)
+        
+    /* /assets/fonts/Poppins-Bold.ttf); */
+
+}
+
+
+@font-face{
+    font-family:Poppins-Light;
+    /* / src:url(/assets/fonts/Poppins-Light.ttf); / */
+    src:url(./assets/fonts/Poppins-Light.ttf);
+}
+
+
+@font-face{
+    font-family:Poppins-Medium;
+    /* / src:url(/assets/fonts/Poppins-Medium.ttf); / */
+
+    src:url(./assets/fonts/Poppins-Medium.ttf);
+
+}
+
+
+@font-face{
+    font-family:Poppins-SemiBold;
+    /* / src:url(/assets/fonts/Poppins-SemiBold.ttf); / */
+
+    src:url(./assets/fonts/Poppins-SemiBold.ttf);
+
+}
+
+@font-face{
+    font-family:Poppins-Regular;
+    /* / src:url(/assets/fonts/Poppins-Regular.ttf); / */
+   
+    src:url(./assets/fonts/Poppins-Regular.ttf);
+   
+}

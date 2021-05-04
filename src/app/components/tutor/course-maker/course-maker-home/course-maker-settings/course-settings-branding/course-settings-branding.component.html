@@ -1,0 +1,182 @@
+<div class="branding-main">
+
+
+    <form [formGroup]="SettingUpdatesForm" (ngSubmit)="submitSettingFormMethod()">
+
+        <div class="branding">
+            <h3 class="brand-head"><span>Course Update</span></h3>
+            <h4 class="course-name-p">Course Name</h4>
+            <p>Set a name for your course. It will help learners to uniquely identify this particular course</p>
+            <input type="text" class="course-title-input" formControlName="courseTitle" autocomplete="off"
+                name="courseTitle" style="color: #989898;" [(ngModel)]="Course_Name_Value"
+                [ngClass]="{ 'is-invalid':(submitted  || f.courseTitle.touched) && f.courseTitle.errors }"
+                placeholder="Enter course name (Ex. JAVA)">
+
+            <div *ngIf="(submitted  || f.courseTitle.touched) && f.courseTitle.errors"
+                class="invalid-feedback invalid-feedback-cls">
+                <div *ngIf="f.courseTitle.errors.required" style="color: red;">courseTitle is required</div>
+            </div>
+
+
+        </div>
+
+        <div class="short-descr-div">
+            <h4 class="course-name-p">Requirements</h4>
+            <p>Add a Requirements about your course here. This will often include a brief idea about the course</p>
+
+
+            <!-- <textarea 
+        type="text" class="description-input"
+        formControlName="ShortDescription" autocomplete="off"
+        name="ShortDescription" 
+        placeholder="Write a Requirements"
+        name="" id="" cols="30" rows="10">
+        </textarea> -->
+
+
+            <!-- <angular-editor class="Text-editor-cls" id="text-editor-cls1" formControlName="ShortDescription"
+                autocomplete="off" name="ShortDescription"
+                [ngClass]="{ 'is-invalid':(submitted  || f.ShortDescription.touched) && f.ShortDescription.errors }"
+                [placeholder]="'Write a Requirements...'"></angular-editor> -->
+
+                <p-editor formControlName="ShortDescription"
+                 name="ShortDescription" [(ngModel)]="Requirements_text" [style]="{'height':'150px'}">
+                    <ng-template pTemplate="header">
+                        <span class="ql-formats">
+                            <button type="button" class="ql-bold" aria-label="Bold"></button>
+                            <button type="button" class="ql-italic" aria-label="Italic"></button>
+                            <button type="button" class="ql-underline" aria-label="Underline"></button>
+                        </span>
+                    </ng-template>
+                </p-editor>
+
+
+
+            <!-- <div *ngIf="(submitted  || f.ShortDescription.touched) && f.ShortDescription.errors"
+                class="invalid-feedback invalid-feedback-cls">
+                <div *ngIf="f.ShortDescription.errors.required">Title is required</div>
+
+                <div *ngIf="f.ShortDescription.errors.pattern">
+                    Spaces are not allowed at starting and ending of the Title
+                </div>
+
+            </div> -->
+
+
+
+
+            <!-- <input   type="text" class="description-input"
+        formControlName="ShortDescription" autocomplete="off"
+        name="ShortDescription" 
+        placeholder="Write a Requirements"> -->
+
+            <!--
+               [ngClass]="{ 'is-invalid':(submitted  || f.ShortDescription.touched) && f.ShortDescription.errors }"
+     
+            <div *ngIf="(submitted || f.ShortDescription.touched ) && f.ShortDescription.errors"
+           class="invalid-feedback invalid-feedback-cls">
+          <div *ngIf="f.ShortDescription.errors.required">Short Description is required</div>
+       </div> -->
+
+
+        </div>
+
+        <div class="description-div">
+            <h4 class="course-name-p">Description</h4>
+            <p>Add detailed course description here. This shall provide your learners all the neccery details about this
+                course</p>
+
+            <!-- <angular-editor  class="Text-editor-cls" id="text-editor-cls" [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>     -->
+
+
+            <!-- <textarea 
+        type="text" class="description-input"
+        formControlName="LongDescription" autocomplete="off"
+        name="LongDescription" 
+        placeholder="Write a Description"
+        name="" id="" cols="30" rows="10">
+
+        </textarea> -->
+
+            <!--         
+        <input   type="text" class="description-input"
+        formControlName="LongDescription" autocomplete="off"
+        name="LongDescription" 
+        placeholder="Write a Description"> -->
+
+
+
+            <!-- <angular-editor 
+            [style]="{'height':'220px'}"
+            class="Text-editor-cls" id="text-editor-cls" formControlName="LongDescription"
+                autocomplete="off" name="LongDescription" [placeholder]="'Long Description text here...'">
+            </angular-editor> -->
+
+
+            <p-editor formControlName="LongDescription" name="LongDescription"
+            [(ngModel)]="LongDescription_text"
+            [style]="{'height':'150px'}">
+                    <ng-template pTemplate="header">
+                        <span class="ql-formats">
+                            <button type="button" class="ql-bold" aria-label="Bold"></button>
+                            <button type="button" class="ql-italic" aria-label="Italic"></button>
+                            <button type="button" class="ql-underline" aria-label="Underline"></button>
+                        </span>
+                    </ng-template>
+                </p-editor>
+
+            <!--
+                [ngClass]="{ 'is-invalid':(submitted  || f.LongDescription.touched) && f.LongDescription.errors }"
+    
+            <div *ngIf="(submitted || f.LongDescription.touched ) && f.LongDescription.errors"
+           class="invalid-feedback invalid-feedback-cls">
+           <div *ngIf="f.LongDescription.errors.required">Long  Description is required</div>
+       </div> -->
+
+
+        </div>
+
+        <div class="cover-img">
+            <h4 class="course-name-p">Course Cover Image</h4>
+            <p>Upload a picture for your course which can help learners easily associate with this course.</p>
+            <!-- <div class="drag-drop"> -->
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-append form-group">
+                    <input type="file" #myInput (change)="onFileChanged($event)"
+                        accept="image/x-png,image/gif,image/jpeg">
+                </div>
+                <button class="btn btn BOTTONS  gradient-button gradient-button-4" (click)="UploadCoverImage()"
+                    [disabled]="isDisabled" type="button">Upload Cover Image</button>
+
+                <span class="errmsg" [ngStyle]="{'display': showerrorDiv ? 'block' : 'none' }">Please
+                    upload Cover Image
+                </span>
+
+                <span class="errmsg" [ngStyle]="{'display': showfiletypeError ? 'block' : 'none' }">
+                    Please Upload jpeg,png Image Format.
+                </span>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- <h3 class="drag-head">
+                Upload Image
+            </h3> -->
+            <!-- <span>1024*576</span> -->
+            <!-- </div> -->
+        </div>
+        <div class="settingsubmit">
+            <button class="submit">Save</button>
+        </div>
+
+    </form>
+</div>

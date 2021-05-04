@@ -1,0 +1,20 @@
+.body{
+    min-width: 60rem;
+}
+.main-content-wrapper, .main-content {
+    flex: 1 0 auto;
+    overflow-x: hidden;
+}
+body, .main-content-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.home-header {
+    box-shadow: none;
+}
+.home-header {
+    /*box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08); */
+    z-index: 1010;
+}

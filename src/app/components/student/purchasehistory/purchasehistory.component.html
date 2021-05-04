@@ -1,0 +1,127 @@
+<!-- <app-student-header></app-student-header> -->
+<app-global-header></app-global-header>
+<div class="container-fluid header-div">
+    <div class="container ">
+        <h2 class="heading">Purchase history</h2>
+    </div>
+
+</div>
+<div class="container">
+    <h4 class="first-title-tag mt-5 ">Purchase history</h4>
+
+</div>
+<div class="container">
+    <div class="purchase">
+        <div class="row mt-3 p-2"  
+        *ngFor= "let p of GetallPurchaseHistoriesArr"
+        style="border: 1px solid silver;">
+            <div class="">
+             
+
+                <ng-container *ngIf="(p.coverImageUrl !== undefined && p.coverImageUrl !== null)">
+                    <img src="{{p.coverImageUrl}}"
+                        class=" col-lg-2 col-md-4 col-sm-4  img-thumbnail coverimage-cls img-fluid div-images" alt="">
+                </ng-container>
+
+                <ng-container *ngIf="(p.coverImageUrl == undefined || p.coverImageUrl == null)">
+             
+                    <span class="label-first-char"> {{p.courseTitle | slice:0:2 }} </span>
+         
+                </ng-container>
+
+                <div class="col-lg-9 ">
+                    <div class="left-div-description-content">
+                        <h6>
+                            
+                            {{p.courseTitle}}
+                        </h6>
+                        <p>
+                            {{p.topic}}
+                        </p>
+                        <p>
+                            {{p.subCategory}}
+                        </p>
+                        <!-- <p>While almost all of the methods tought course are free, I will also show a couple of paid
+                            methods that are option and for
+                        </p> -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12  row">
+                <div class="col-lg-2 col-md-4   right-div-description-content1">
+                    <p>Date</p>
+                    {{p.updatedAt | date: 'dd/MM/yyyy'}}
+                    <!-- <p>Jan 12, 2020</p> -->
+                </div>
+                <div class="col-lg-3 col-md-4  right-div-description-content1">
+                     <p>Total Price </p>
+                    <p>$ {{p.price}}</p>
+                </div>
+                <div class="col-lg-2 col-md-4   right-div-description-content1">
+                    <p>Payment</p>
+                    <!-- <p>Free Coupon</p> -->
+                    <p>$ {{p.price}}</p>
+                </div>
+                <div class="col-lg-2 col-md-4 right-div-description-content1">
+                    <p>Receipt</p>
+                    <p><button type="button" disabled class="btn btn-outline-secondary">Receipt</button></p>
+                </div>
+                <div class="col-lg-3 col-md-6  right-div-description-content1">
+                    <p>Invoice</p>
+                    <p>{{p.updatedAt  | date: 'dd/MM/yyyy'}}</p>
+                    <!-- <p>Jan 12, 2020</p> -->
+                </div>
+            </div>
+        </div>
+    
+    
+        <!-- <div class="row  mt-3 p-2" style="border: 1px solid silver;">
+            <div class="col-lg-6 col-md-12 col-sm-12 p-0 m-0 row">
+                <img src="https://d2tzzaacuulbxu.cloudfront.net/assets/img/notifications/notification_img.png" class="col-lg-3 img-fluid p-0" alt="">
+                <div class="col-lg-9 ">
+                    <div class="left-div-description-content">
+                        <h6>Ocademy Marketing - Create A Ocademy Promo Video - Unofficial</h6>
+                        <p>While almost all of the methods tought course are free, I will also show a couple of paid
+                            methods that are option and for
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12  row">
+                <div class="col-lg-2 col-md-4   right-div-description-content1">
+                    <p>Date</p>
+                    <p>Jan 12, 2020</p>
+                </div>
+                <div class="col-lg-3 col-md-4  right-div-description-content1">
+                    <p>Total Price </p>
+                    <p>$ 45.12</p>
+                </div>
+                <div class="col-lg-2 col-md-4   right-div-description-content1">
+                    <p>Payment</p>
+                    <p>Free Coupon</p>
+                </div>
+                <div class="col-lg-2 col-md-4 right-div-description-content1">
+                    <p>Receipt</p>
+                    <p><button type="button" class="btn btn-outline-secondary">Receipt</button></p>
+                </div>
+                <div class="col-lg-3 col-md-6  right-div-description-content1">
+                    <p>Invoice</p>
+                    <p>Jan 12, 2020</p>
+                </div>
+            </div>
+        </div> -->
+    
+    </div>
+
+    <ng-container  *ngIf="shownohistoryDiv">
+        <div class=" mb-5 mt-5 alert alert-primary text-center nocontentmessage"  role="alert">
+            Not Available!
+          </div>    
+    </ng-container>
+
+    
+
+</div>
+
+<app-student-footer></app-student-footer>

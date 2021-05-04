@@ -1,0 +1,259 @@
+<!-- <app-main-home-header></app-main-home-header> -->
+<app-global-header></app-global-header>
+
+<section class="main-search-section-cls">
+    <div class="container">
+        <div class="row  mt-3 mb-3">
+            <h4 class="search-header">{{searchheading}}</h4>
+        </div>
+
+        <div class="row">
+            <p class="lead breadcomb">
+                <span class="course-name-cls"> {{searchheading }} related to </span> <span class="icon-right">></span>
+                <span class="course-cat-cls"> {{ Categories}}</span> <span class="icon-right">></span>
+                <span class="course-subcat-cls"> {{subCategories}}</span> <span class="icon-right">></span>
+                <span class="course-subcat-cls">
+                    Courses.
+                </span>
+                <!-- <span class="course-name-cls"> {{searchheading }} related to </span>
+                <span class="course-cat-cls"> {{ Categories}}</span>
+                <span class="course-subcat-cls"> {{subCategories}}</span>
+                <span class="course-subcat-cls">
+                    Courses.
+                </span> -->
+            </p>
+        </div>
+
+        <div class="row">
+            <p class="lead course-name-studes-cls">
+                <span class=""> {{LearningNoofStu }} </span>
+                <span> Students are Learning </span>
+                <span> {{searchheading}} </span>
+                on Ocademy.
+            </p>
+        </div>
+
+
+
+        <!-- students Also Learn Section  -->
+        <div class="row">
+            <div class="col p-0">
+                <h4 class="search-header">
+                    <span> {{searchheading}}</span>
+                    <span> Students also learn </span>
+                </h4>
+            </div>
+        </div>
+
+        <div class="row  students-also-learn-card-cls">
+            <div *ngFor="let c of s" class="mb-2 mt-2 mx-auto col-sm-3 col-md-3 col-xs-12 col-lg-3">
+                <div class="card" style="cursor: pointer;" (click)="searchBasedOnTopic(c)">
+                    <div class="card-body">
+                        <p>
+                            {{c.name}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main Search page  -->
+        <div class="main-search-page-cls mb-3 mt-2">
+            <div class="row">
+                <div class="col p-0">
+                    <h4 class="search-header">{{searchheading}} </h4>
+                </div>
+            </div>
+
+            <div class="courses-des-cls">
+                <div class="row">
+                    <p>
+                        {{coursesDes}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-xs-12 mb-2  col-md-3 col-lg-3">
+
+                    <button (click)="filterShowHide()" class="btn btn-danger btn-md 
+                     center-block filter-btn-cls">
+                        <i class="fa fa-bars filter-btn-icon-cls" aria-hidden="true"></i>
+                        Filter
+                    </button>
+                </div>
+                <div class="mb-2 col-sm-4  col-xs-12">
+                    <div class="filter-dropdown-search-div-cls">
+                        <select class="filter-fropdown-cearch-cls" #mySelect
+                            (change)='onOptionslevelSelected(mySelect.value)' name="slct" id="slct">
+                            <option selected disabled>Most Popular</option>
+                            <option value="All Levels">All Levels</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Expert">Expert</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3 mb-3" [ngClass]="showfilData === true?'showfilerparent':'hidefilerparent'">
+                <div [ngClass]="showfilData === true?'showfiler-cls':'hidefiler-cls'"
+                    class="col-sm-4 col-md-3 col-xs-12 col-lg-3">
+                    <div class="sidebar-filter-panel">
+                        <div class="sidebar-filter-heading-cls" (click)="TopicListMethod()">
+                            <h4>
+                                <span class="heading-t-cls">
+                                    Topic
+                                </span>
+                            </h4>
+                            <span class="arrow-btn" *ngIf="!showbtnArrowtopic">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="arrow-btn" *ngIf="showbtnArrowtopic">
+                                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="sidebar-topic-list" [ngStyle]="{'display': showTopicToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of AllTopics">
+                                <input type="radio" name="TopicexampleChecktopic"
+                                    (change)="onChangeTopic(x.name, $event.target.checked)" class="form-check-input"
+                                    id="TopicexampleCheck{{x.id}}">
+                                <label class="form-check-label" for="TopicexampleCheck{{x.id}}">{{x.name}} </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-filter-panel">
+                        <div class="sidebar-filter-heading-cls" (click)="showLevelMethod()">
+                            <h4>Level </h4>
+                            <span class="arrow-btn" *ngIf="!showbtnArrowLevel">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="arrow-btn" *ngIf="showbtnArrowLevel">
+                                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="sidebar-topic-list" [ngStyle]="{'display': showLevelToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of Alllevels">
+                                <input type="radio" name="LevelexampleCheck"
+                                    (change)="onChangeLevel(x.name, $event.target.checked)" class="form-check-input"
+                                    id="LevelexampleCheck{{x.ID}}">
+                                <label class="form-check-label" for="LevelexampleCheck{{x.ID}}">{{x.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-filter-panel">
+                        <div class="sidebar-filter-heading-cls" (click)="showLangMethod()">
+                            <h4>Languages </h4>
+                            <span class="arrow-btn" *ngIf="!showbtnArrowLang">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                            <span class="arrow-btn" *ngIf="showbtnArrowLang">
+                                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="sidebar-topic-list" [ngStyle]="{'display': showlangToggle ? 'block' : 'none' }">
+                            <div class="form-check" *ngFor="let x  of AllLanguages">
+                                <input type="radio" value="{{x.name}}" name="LanguagesexampleCheckLang"
+                                    (change)="onChangeLanguages(x.name, $event.target.checked)" class="form-check-input"
+                                    id="LanguagesexampleCheck{{x.IDs}}">
+                                <label class="form-check-label" for="LanguagesexampleCheck{{x.IDs}}">{{x.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-8 col-md-8 col-xs-12 col-lg-8 rightfullwidth">
+                    <div class="row" class="showemptyCourses-cls" *ngIf="showemptyCourses">
+                        <div class="alert alert-danger" role="alert">
+                            <!-- No Data for Selected Course..! -->
+                            No results found.
+                        </div>
+                    </div>
+                    <ng-container *ngIf="!showemptyCourses">
+                        <div class="results-courses-data-cls" (click)="innerviewpage(x.id, x.courseTitle)" *ngFor="let x of selectedLevelData | paginate:{itemsPerPage:10,currentPage:cp} ; let i=index;">
+                            <div class="videoTagdiv">
+                                <span>
+                                    <div class="video_player1">
+                                        <!-- <video (playing)="onPlayingVideo($event)" (click)="checkVideoPlayer(x, i)"
+                                            width="210px" height="100%" controls>
+                                            <source src="{{x.fileUrl}}">
+                                        </video> -->
+                                        <span class="label-first-char">{{x.courseTitle | slice: 0:2}} </span>
+                                    </div>
+                                </span>
+                            </div>
+                            <!-- ravi bootstrap 4 modal  -->
+                            <div class="modal fade" id="myModal{{i}}" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 style="font-size: 18px; margin: 0; color: #000000;text-transform: capitalize;"
+                                                class="card-title">{{x.courseTitle}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <video allowfullscreen autoplay="true" controlsList="nodownload"
+                                                    width="100%" height="100%" controls>
+                                                    <source src="{{x.fileUrl}}">
+                                                </video>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ravi bootstrap 4 modal end  -->
+                            <div class="right-content-div">
+                                <div class="left-contentdiv">
+                                    <h5 class="search-course-main-tilte-cls">
+                                        {{x.courseTitle}}
+                                    </h5>
+                                    <p>
+                                        {{x.topic}}
+                                    </p>
+                                    <p>
+                                        {{x.language}}
+                                    </p>
+                                    <p> <span>
+                                            {{x.level}}
+                                        </span> </p>
+
+                                    <p></p>
+                                </div>
+                                <div class="priceright">
+                                    <div class="price-cls pull-right">
+                                        <p class="discount-price-cls"> &#36;
+                                            {{x.price}}
+                                        </p>
+                                        <p><del>&#36; {{SearchCourseActualPrice}}</del> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div class="paginationDiv">
+                        <pagination-controls autoHide="true"responsive="true" (pageChange)="cp=$event" class=" pagination"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- end main Search page  -->
+
+
+        <!-- end students Also Learn Section  -->
+
+
+    </div>
+</section>
+
+<app-main-footer></app-main-footer>

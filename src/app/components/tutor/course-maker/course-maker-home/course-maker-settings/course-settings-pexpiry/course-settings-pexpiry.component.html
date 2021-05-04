@@ -1,0 +1,97 @@
+<div class="branding-main">
+    <div class="branding">
+        <h3 class="brand-head"><span>Pricing and Expiry</span></h3>
+        <h4 class="course-name-p">Course Access type</h4>
+        <p>Check one of the boxes below. You can either make it public course or you can restrict the access only to invited students (Private course)</p>
+
+        <label class="container">
+            <input type="radio" name="course" value="public" id="publiccourse">
+            <span class="checkmark"></span>
+            Make this course public
+        </label>
+        <label class="container">
+            <input type="radio" checked="checked" name="course" value="private" id="privatecourse">
+            <span class="checkmark"></span>
+            Make this course private
+        </label>
+        <!-- <input type="radio" name="course" value="public" id="publiccourse"><label for="publiccourse">Make this course public</label>
+            <input type="radio" name="course" value="private" id="privatecourse"><label for="privatecourse">Make this course private</label> -->
+
+    </div>
+
+    <div class="short-descr-div">
+        <h4 class="course-name-p">Validity</h4>
+        <p>Determine the validity period or expiry date of your course</p>
+        <label class="container">
+            <input type="radio" checked="checked" name="radio">
+            <span class="checkmark"></span>
+            Set Validity
+        </label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar2-week" fill="currentColor" >
+                    <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4zM11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                  </svg>
+              </span>
+            </div>
+            <input class="customdate" type="date">
+        </div>
+
+        <!-- <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker [dateClass]="dateClass" #picker></mat-datepicker>
+          </mat-form-field> -->
+    </div>
+
+    <div class="description-div">
+        <h4 class="course-name-p">Set course selling type</h4>
+        <p>Check one of the two boxes below to make it as a free or a paid course. If you wish to make your course as paid then please set COURSE SELLING MODE below.</p>
+        <label class="container">
+                <input type="radio" name="sale" value="free" id="freecourse">
+                <span class="checkmark"></span>
+                Make this free course
+            </label>
+        <label class="container">
+                <input type="radio" checked="checked" name="sale" value="paid" id="paidcourse">
+                <span class="checkmark"></span>
+                Make this paid course
+            </label>
+    </div>
+
+    <div class="cover-img">
+        <h4 class="course-name-p">Pricing</h4>
+        <p>Set product price for access</p>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash" fill="currentColor" >
+                    <path fill-rule="evenodd" d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z"/>
+                    <path d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                  </svg>
+              </span>
+            </div>
+            <input type="text" placeholder="Username">
+            <span class="moneytype">Indian Rupee</span>
+        </div>
+        <div class="form-group customcheckbox">
+            <input type="checkbox" id="enabledisc">
+            <label for="enabledisc">Enable Discount</label>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash" fill="currentColor" >
+                    <path fill-rule="evenodd" d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z"/>
+                    <path d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                  </svg>
+              </span>
+            </div>
+            <input type="text" placeholder="Username">
+            <span class="moneytype">Indian Rupee</span>
+        </div>
+    </div>
+</div>
